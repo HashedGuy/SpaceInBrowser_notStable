@@ -3,6 +3,7 @@
 Travel space in your browser: https://spaceinbrowser.com/ 
 
 ![SIB Logo](/public/logo/logo_transparent_50.png#gh-dark-mode-only)
+![SIB Logo](/public/logo/twitter_profile_image.png#gh-light-mode-only)
 
 ## Description
 
