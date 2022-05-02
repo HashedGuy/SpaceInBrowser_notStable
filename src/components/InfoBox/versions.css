@@ -1,0 +1,51 @@
+
+.versionsContainer {
+    color: aliceblue;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    background-color: rgb(15, 15, 15);
+  }
+
+  .versionsContainer a {
+      cursor: pointer;
+   
+  }
+
+  .versionsContainer p {
+    transition:  all .2s ease-in-out;
+  }
+
+  .versionsContainer p:hover {
+      transform: scale(1.05);
+  }
+
+  .versionsTable {
+      /* border-right: 1px solid purple; */
+      padding: 1em;
+      height: 100vh;
+      padding-right: 3em;
+      box-shadow:  10px 0px 55px purple;
+  }
+  
+  .versionsInfo {
+      text-align: left;
+      border-left: 1px solid purple;
+      padding: 1em;
+      padding-left: 5em;
+  }
+
+  .majorRelease {
+      color: goldenrod;
+      font-size: 120%;
+  }
+
+  .pendingVersion a{
+      opacity: .5;
+  }
+
+  .titleVersion {
+      color: goldenrod;
+  }

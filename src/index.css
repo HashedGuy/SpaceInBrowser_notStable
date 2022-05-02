@@ -1,0 +1,2423 @@
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  background-color: rgb(1, 4, 10);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+audio {
+  width: 90%;
+  height: 12%;
+  box-shadow: 5px 5px 20px rgba(0,0, 0, 0.4);
+  border-radius: 90px;
+  margin-bottom: 1em;
+}
+
+h5, p {
+  line-height: 1.5em;
+}
+
+.infoBox p {
+  padding: 1em;
+}
+
+a {
+  text-decoration: none;
+}
+
+.annotation {
+  color:aliceblue;
+    width: 30vh;
+    height: 100%;
+    position: absolute;
+    transform: translate3d(0%, 0%, 0px) scale(1) !important;
+    transform-origin: 0px 0px;
+    z-index: 16639014;
+    padding:1em;
+    background-color: rgba(28, 28, 28, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+}
+
+.extraInfo {
+  position: absolute;
+  z-index: 16639014;
+  top: 67%;
+  left: 410% !important;
+  width: 30vh;
+  height: 30vh;
+  padding: .5em;
+  border-radius: 5%;
+  background-color: rgba(15, 56, 31, 0.205);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.versionName {
+  font-size: 30%;
+  font-weight: 300;
+  color: rgb(148, 48, 148);
+}
+
+.soundBackground {
+  position: absolute;
+  z-index: 16639014;
+  top: 86%;
+  left: 230%;
+  width: 12vh;
+  height: 12vh;
+  padding: .5em;
+  border-radius: 50%;
+  background-color: rgba(15, 56, 31, 0.055);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  cursor: pointer;
+  border: 1px solid #ca101067;
+}
+
+.soundBackground:hover {
+  background-color: #ca101067;
+}
+
+.soundBackground p {
+  margin: 0;
+}
+
+.changeSong {
+  margin: 0;
+  font-size: 150%;
+}
+
+.playPauseBg {
+  background: transparent;
+  border: var(--primary) 1px solid;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 32px;
+  color: var(--secondary);
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.playPauseBg:hover {
+  transform: scale(1.1);
+  background: var(--primary);
+}
+
+.soundBackground:hover .playPauseBg {
+  opacity: .5;
+  height: 20px;
+}
+
+.content {
+  opacity: 0;
+  font-size: 10px;
+  margin-top: 0;
+  position: relative;
+  display: none;
+  color: #eaeef0;
+  width: 70px;
+  height: 30px;
+  -webkit-transition: all 400ms ease-out;
+  -moz-transition: all 400ms ease-out;
+  -o-transition: all 400ms ease-out;
+  -ms-transition: all 400ms ease-out;
+  transition: all 400ms ease-out;
+  text-align: center;
+}
+.soundBackground:hover .content {
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+}
+.soundBackground .content .text {
+  justify-content: center;
+  height: 0;
+  opacity: 1;
+  transition-delay: 0s;
+  transition-duration: 0.4s;
+}
+
+.playBtns {
+  position: relative;
+  left: 5%;
+  font-size: 75%;
+}
+
+.soundBackground:hover .playBtns {
+  font-size: 50%;
+}
+
+.usefulInfo {
+  background-color: rgba(15, 56, 31, 0.363) !important;
+}
+
+.alertLive {
+  box-shadow: 5px 5px 5px #922714af;
+}
+
+.alertAudio {
+  box-shadow: 5px 5px 5px #149214af;
+}
+
+.audioSection {
+  position: absolute;
+  z-index: 16639014;
+  top: 1%;
+  left: 395% !important;
+  width: 35vh;
+  height: 35vh;
+  padding:1em;
+  border-radius: 5%;
+  background-color: rgba(28, 28, 28, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.audioSection p {
+  text-align: center;
+  font-size: 70%;
+}
+
+.audioSection p a {
+  cursor: pointer;
+  color: greenyellow;
+}
+
+.disabledSpan {
+  display: none;
+}
+
+.enabledSpan {
+  font-size: 60% !important;
+  opacity: .7;
+}
+
+.extraWeird {
+  left: 477% !important;
+}
+
+.extraInfo p {
+  font-size: 80%;
+  text-align: center;
+}
+
+.extraInfo p:last-child {
+  margin-bottom: 2em;
+}
+
+.extraInfo a {
+  text-decoration: none;
+}
+
+.extraInfo .credits {
+  font-size: 50%;
+}
+
+.infoBorders {
+  padding: 1em;
+}
+.infoBorders h5 {
+  margin-bottom: 2em;
+  font-size: 70%;
+}
+
+.infoBorders p, .populationInfo p {
+  font-size: 70%;
+}
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+  height: 96vh;
+  text-align: center;
+  justify-content: space-between;
+  overflow-y: auto;
+  user-select: none;
+}
+
+.logoImg {
+  width: 120px;
+  cursor: pointer;
+}
+
+.logoSmallImg {
+  width: 80px;
+  transition: transform .2s ease-in-out;
+}
+
+.logoSmallImg:hover {
+  transform: scale(1.2);
+}
+.addInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoBox p:last-child {
+  margin-bottom: 2em;
+}
+
+.viewDiv p:first-child {
+  margin-top: 2em;
+  margin-bottom: .5em;
+}
+
+.home-btn {
+  cursor: pointer;
+  border: 1px solid whitesmoke;
+  padding: .5em;
+  border-radius: 10px;
+  margin-top: 1.5em;
+  margin-right: .5em;
+}
+
+.home-btn:hover {
+  background-color: aliceblue;
+  color: black;
+}
+
+.btn-selected {
+  color: black;
+  background-color: aliceblue;
+}
+
+.hidden-btn {
+  display: none;
+}
+
+.inActive {
+  pointer-events: none;
+  cursor: default;
+}
+
+.credits {
+  font-size: 70%;
+}
+
+.viewDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.viewDiv h5 {
+  margin: 0;
+  color: #1DA1F2;
+}
+
+.nextMission {
+  color: #4ab2f3;
+}
+
+.populationInfo li{
+  list-style-type: none;
+  margin: 1.5em 0;
+}
+
+.infoPic {
+  background-size: cover;
+  width: 80%;
+  align-self: center;
+  border-radius: 5px;
+}
+
+.bioGroups {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bioPic {
+  background-size: cover;
+  width: 50px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.bioPicR {
+  background-size: cover;
+  width: 15%;
+  cursor: pointer;
+  margin-left: 4%;
+  opacity: .7;
+}
+
+.bioPicC {
+  background-size: cover;
+  width: 20%;
+  cursor: pointer;
+  margin-left: 7%;
+}
+
+.Patreon {
+  color: aliceblue;
+}
+
+.iconSection p {
+  font-size: 50%;
+  margin-bottom: 0;
+  margin-right: 1em;
+}
+.iconSection a {
+  margin-right: 1em;
+}
+
+.earthBtn, .marsBtn, .homeBtn, .moonBtn, .earthMoonBtn {
+  margin-top: .5em !important;
+}
+
+.earthBtn:hover, .earthMoonBtn:hover {
+  color: rgb(45, 87, 226);
+}
+
+.moonBtn:hover {
+  color: orange;
+}
+
+.marsBtn:hover {
+  color: #9C2E35;
+}
+
+.patreonBtn, .twBtn, .ytBtn {
+  color: aliceblue;
+}
+
+.patreonBtn:hover {
+  color: #f96854;
+  scale: 1.5;
+}
+
+.twBtn:hover {
+  color: #1DA1F2;
+}
+
+.ytBtn:hover {
+  color: #FF0000;
+}
+
+.youtubeBtn:hover {
+  color: #FF0000;
+}
+
+.twBtn {
+  cursor: pointer;
+}
+
+.homeBtn:hover {
+  color: rgb(40, 150, 46);
+}
+
+.audioBtn {
+  cursor: pointer;
+  font-size: 150%;
+  color: green;
+}
+
+.audioSection .credits {
+  font-size: 40%;
+}
+
+.lightBtn:hover {
+  color: yellow;
+}
+
+.launchpad {
+  color: black;
+  background-color: aliceblue;
+  cursor: default;
+}
+
+.logoTitletext {
+  font-weight: 500;
+  margin-left: 2%;
+}
+
+.logoTitleBeta {
+  font-weight: 200;
+  margin-left: 2%;
+}
+
+.infoLight {
+  align-self: end;
+  cursor: pointer;
+}
+
+.logoTitle {
+  text-align: center;
+  margin-left: 5%;
+  cursor: pointer;
+}
+
+.closeBtn {
+  align-self: flex-end;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.mouseBtn {
+  position: absolute;
+  z-index: 16639014;
+  top: 87%;
+  left: 480% !important;
+  width: 5vh;
+  height: 5vh;
+  padding: .5em;
+  border-radius: 20%;
+  background-color: rgba(15, 56, 31, 0.205);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.headphoneBtn {
+  position: absolute;
+  z-index: 16639014;
+  top: 1%;
+  left: 480% !important;
+  width: 5vh;
+  height:  5vh;
+  padding: .5em;
+  border-radius: 20%;
+  background-color: rgba(28, 28, 28, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.stream {
+  border-radius: 20px;
+}
+
+.hoverName {
+  margin-top: 1em;
+  margin-bottom: 0 !important;
+  opacity: .6;
+}
+
+.headphoneInfo {
+  font-size: 10%;
+  margin-bottom: 0;
+  color: #FF0000;
+  margin-top: 2em;
+}
+
+.headphoneInfoAudio {
+  font-size: 10%;
+  margin-bottom: 0;
+  color: #10ca1f;
+  margin-top: 2em;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50vh;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+  text-align: center;
+}
+
+.loadingContainer p {
+  color: #c6dd43;
+}
+
+.bioPic #Mathias :hover {
+  content: 'Matt';
+}
+
+.audioDescription {
+  font-size: 70%;
+}
+
+.population {
+  margin: 1em;
+}
+
+.menuIcons {
+  display: flex;
+}
+
+.gmoLoading {
+  font-size: 135%;
+}
+
+.axiom {
+  pointer-events: none;
+  cursor: default;
+  opacity: .5;
+}
+
+.sunsetGuy {
+  border: 1px solid aqua;
+  margin-top: 2em;
+  padding: .2em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.arbusWorld {
+  font-size: 100% !important;
+  margin-left: 1.3em;
+}
+
+.arbusWorld a {
+  cursor: pointer;
+  color: rgb(0, 255, 213);
+}
+
+.curiousBeing:hover {
+  color: rgba(127, 255, 212, 0.473);
+}
+
+.landscape {
+  display: none;
+  color: palevioletred !important;
+}
+
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .annotation {
+      width: 20vh;
+      font-size: 70%;
+    }
+
+    .landscape {
+      display: inline;
+    }
+
+    .infoBox {
+      padding: 1em;
+    }
+
+    .soundBackground {
+      width: 5vh;
+      height: 5vh;
+      top: 94%;
+      left: 160%;
+    }
+
+    .extraInfo {
+      left: 200% !important;
+      top: 77%;
+      width: 20vh;
+      height: 20vh;
+      font-size: 70%;
+      padding: 1.5em;
+    }
+
+    .audioSection {
+      left: 180% !important;
+      width: 25vh;
+      height: 25vh;
+      font-size: 30%;
+      padding: 0 1.5em;
+    }
+
+    .mouseBtn {
+      left: 290% !important;
+      top: 92%;
+      font-size: 70%;
+    }
+
+    .headphoneBtn {
+      left: 275% !important;
+    }
+
+    .audioSection p {
+      margin-bottom: 1em;
+    }
+
+    .giMoonOrbit {
+      height: 1.5em !important;
+      width: 1.5em !important;
+      margin-right: 1em !important;
+    }
+
+    .gmoLoading {
+      font-size: 100%;
+    }
+
+    .loadingContainer {
+      width: 60vh;
+    }
+
+    .loadingContainer h1, .loadingContainer p {
+      font-size: 100%;
+    }
+
+    .infoBorders p {
+      font-size: 75%;
+    }
+
+    p {
+      line-height: 2em;
+    }
+
+    .audioSection p {
+      line-height: 5em;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .annotation {
+      width: 30vh;
+      font-size: 70%;
+      padding: 0 1.5em;
+    }
+
+    .audioSection {
+      height: 28vh;
+      width: 28vh;
+    }
+
+    .extraInfo, .audioSection {
+      left: 285% !important;
+    }
+
+    .mouseBtn, .headphoneBtn {
+      left: 330% !important;
+    }
+
+    .headphoneBtn {
+      top: 5% !important;
+    }
+
+    .audioSection {
+      top: 5%;
+    }
+
+    .soundBackground {
+      left: 180%;
+    }
+    .giMoonOrbit {
+      height: 1.5em !important;
+      width: 1.5em !important;
+      margin-right: 1em !important;
+    }
+
+    .gmoLoading {
+      font-size: 100%;
+    }
+
+    .loadingContainer {
+      width: 60vh;
+    }
+
+    .loadingContainer h1, .loadingContainer p {
+      font-size: 100%;
+    }
+
+    .infoBorders p {
+      font-size: 75%;
+    }
+}
+
+/* ----------- iPad Pro 10.5" ----------- */
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 834px) 
+  and (max-device-width: 834px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    
+    .audioSection {
+      padding: 1em;
+    }
+
+    .landscape {
+      display: inline;
+    }
+
+    .giMoonOrbit {
+      height: 1.5em !important;
+      width: 1.5em !important;
+      margin-right: 1em !important;
+    }
+
+    .gmoLoading {
+      font-size: 100%;
+    }
+
+    .loadingContainer {
+      width: 60vh;
+    }
+
+    .loadingContainer h1, .loadingContainer p {
+      font-size: 100%;
+    }
+
+    .infoBorders p {
+      font-size: 75%;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 1112px) 
+  and (max-device-width: 1194px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .annotation {
+      width: 25vh;
+      font-size: 70%;
+    }
+
+    .extraInfo {
+      top: 67%;
+    }
+
+    .extraInfo, .audioSection {
+      left: 360% !important;
+    }
+
+    .audioSection {
+      width: 30vh;
+      height: 30vh;
+    }
+
+    .headphoneBtn, .mouseBtn {
+      left: 420% !important;
+    }
+
+    .headphoneBtn {
+      top: 5%;
+    }
+
+    .infoBorders {
+      padding: 1em !important;
+    }
+
+    .giMoonOrbit {
+      height: 1.5em !important;
+      width: 1.5em !important;
+      margin-right: 1em !important;
+    }
+
+    .gmoLoading {
+      font-size: 100%;
+    }
+
+    .loadingContainer {
+      width: 60vh;
+    }
+
+    .loadingContainer h1, .loadingContainer p {
+      font-size: 100%;
+    }
+
+    .infoBorders p {
+      font-size: 75%;
+    }
+}
+
+/* ----------- iPad Pro 12.9" ----------- */
+
+  /* Portrait */
+  @media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .infoBox {
+      padding: 0 1em;
+    }
+
+    .infoBorders h5 {
+      font-size: 140%;
+    }
+
+    .landscape {
+      display: inline;
+    }
+
+    .soundBackground {
+      left: 155% !important;
+      top: 92%;
+      width: 8vh;
+      height: 8vh;
+    }
+
+    .extraInfo {
+      left: 235% !important;
+      top: 80%;
+      width: 20vh;
+      height: 20vh;
+    }
+
+    .audioSection {
+      left: 235% !important;
+      width: 20vh;
+      height: 20vh;
+    }
+
+    .mouseBtn {
+      left: 280% !important;
+      top: 94%;
+      width: 4vh;
+      height: 4vh;
+    }
+
+    .headphoneBtn {
+      left: 280% !important;
+      top: 5%;
+    }
+
+    .audioSection p {
+      margin-bottom: 0; 
+      line-height: 6em !important;
+    }
+
+    .audioDescription {
+      font-size: 60% !important;
+      margin-bottom: 1em !important;
+    }
+
+    .giMoonOrbit {
+      height: 1.5em !important;
+      width: 1.5em !important;
+      margin-right: 1em !important;
+    }
+
+    .gmoLoading {
+      font-size: 100%;
+    }
+
+    .loadingContainer {
+      width: 60vh;
+    }
+
+    .loadingContainer h1, .loadingContainer p {
+      font-size: 100%;
+    }
+
+    .infoBorders p {
+      font-size: 90%;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 1366px) 
+  and (max-device-width: 1368px)  
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .annotation {
+      width: 25.5vh;
+    }
+
+    .extraInfo, .audioSection {
+      left: 330% !important;
+      width: 27vh;
+      height: 25vh;
+      padding: 1.5em;
+    }
+
+    .audioSection {
+      top: 3%;
+    }
+
+    .extraInfo {
+      top: 68%;
+    }
+
+    .mouseBtn {
+      left: 420% !important;
+    }
+
+    .headphoneBtn {
+      left: 400% !important;
+      top: 5% !important;
+    }
+
+    .soundBackground {
+      left: 220% !important;
+    }
+
+    .giMoonOrbit {
+      height: 1.5em !important;
+      width: 1.5em !important;
+      margin-right: 1em !important;
+    }
+
+    .gmoLoading {
+      font-size: 120%;
+    }
+
+    .loadingContainer {
+      width: 60vh;
+    }
+
+    .loadingContainer h1, .loadingContainer p {
+      font-size: 120%;
+    }
+
+    .infoBorders h5, .infoBorders p {
+      font-size: 90%;
+    }
+}
+
+/* iPhone 6, 7, 8 ----------- */
+  
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-height: 667px) 
+  and (orientation : portrait) 
+  and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+    .annotation {
+      width: 15vh;
+      font-size: 30%;
+      padding: 5em;
+    }
+
+    .landscape {
+      display: inline;
+    }
+
+    .infoBorders h1 {
+      font-size: 250%;
+    }
+
+    .infoBorders h5 {
+      font-weight: 300;
+      margin-top: 2em;
+      margin-bottom: 4em;
+    }
+
+    .soundBackground {
+      left: 130%;
+      top: 93%;
+      width: 5vh;
+      height: 5vh;
+      background-color: transparent !important;
+    }
+
+    .playBtns {
+      font-size: 50%;
+    }
+
+    .extraInfo {
+      left: 200% !important;
+      top: 40%;
+      width: 7vh;
+      background-color: transparent !important;
+    }
+
+    .extraInfo p, .fa-computer-mouse, .closeBtn, .audioSection, .headphoneBtn, .hoverName, .fa-location-dot {
+      display: none;
+    }
+
+    .menuIcons {
+      flex-direction: column;
+    }
+
+    .menuIcons a, .lightBtn {
+      margin-bottom: 1em;
+    }
+
+    .lightBtn {
+      font-size: 150%;
+    }
+
+    .addInfo, .infoBorders {
+      padding: 1.5em;
+    }
+
+    .populationInfo p {
+      /* font-size: 20%; */
+      font-weight: 200;
+      margin: 5em 0;
+    }
+
+    .populationInfo ul  {
+      margin: 3em 0 !important;
+      padding-inline-start: 0;
+    }
+
+    .populationInfo li {
+      margin-bottom: 2.5em !important;
+    }
+
+    .iconSection a {
+      margin-right: 2em;
+    }
+
+    .dleo {
+      font-size: 50%;
+      padding: 2em !important;
+      margin-top: 10em !important;
+    }
+
+    .giMoonOrbit {
+      height: 1.5em !important;
+      width: 1.5em !important;
+      margin-right: 1em !important;
+    }
+
+    .loadingContainer {
+      width: 60vh;
+    }
+
+    .loadingContainer h1, .loadingContainer p {
+      font-size: 65%;
+    }
+
+    .gmoLoading {
+      font-size: 85%;
+    }
+
+    h5, p {
+      line-height: 1rem;
+    }
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-height: 667px) 
+  and (orientation : landscape) 
+  and (-webkit-device-pixel-ratio: 2){
+  /* Styles */
+    .annotation {
+      font-size: 30%;
+      width: 40vh;
+    }
+
+    .infoBorders, .addInfo {
+      padding: 2.5em;
+    }
+
+    .infoBorders h5 {
+      font-weight: 400;
+      margin-top: 5em !important;
+    }
+
+    .addInfo p {
+      font-size: 7px;
+      font-weight: 200;
+    }
+
+    .extraInfo p, .fa-computer-mouse, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
+      display: none;
+    }
+
+    .menuIcons {
+      flex-direction: column;
+    }
+
+    .extraInfo {
+      left: 380% !important;
+      top: 70%;
+      width: 7vh;
+      background-color: transparent !important;
+    }
+
+    .soundBackground {
+      background-color: transparent !important;
+      left: 250%;
+      top: 90%;
+    }
+
+    .credits {
+      font-size: 6px !important;
+    }
+
+    .menuIcons a, .lightBtn {
+      margin-bottom: 1em;
+    }
+
+    .playBtns {
+      font-size: 50%;
+    }
+
+    .lightBtn {
+      font-size: 150%;
+    }
+
+    .populationInfo ul  {
+      margin: 3em 0 !important;
+      padding-inline-start: 0;
+    }
+
+    .populationInfo li {
+      margin-bottom: 3em !important;
+    }
+
+    .logoTitleText, .logoTitleBeta {
+      font-size: 8px !important;
+    }
+
+    .population {
+      font-size: 8px;
+    }
+
+    .home-btn {
+      padding: .6em;
+    }
+
+    .infoBorders h5 {
+      margin-bottom: 4em;
+    }
+
+    .infoBorders p {
+      font-size: 150%;
+    }
+    .viewDiv p {
+      font-size: 7px;
+      font-weight: 300;
+    }
+
+    .viewDiv a {
+      font-size: 8px;
+    }
+
+    .iconSection a {
+      margin-right: 2em;
+    }
+
+    .dleo {
+      font-size: 50%;
+      padding: 2em !important;
+      margin-top: 10em !important;
+    }
+
+    .giMoonOrbit {
+      height: 1.5em !important;
+      width: 1.5em !important;
+      margin-right: 1em !important;
+    }
+
+    .loadingContainer {
+      width: 60vh;
+    }
+
+    .loadingContainer h1, .loadingContainer p {
+      font-size: 65%;
+    }
+
+    .gmoLoading {
+      font-size: 85%;
+    }
+  }
+
+/* Galaxy S8+ */
+@media only screen 
+  and (min-device-width: 360px) 
+  and (max-device-height: 740px) 
+  and (orientation : portrait) 
+  and (-webkit-device-pixel-ratio: 4){
+    .annotation {
+      width: 15vh;
+      font-size: 30%;
+      padding: 5em;
+    }
+
+    .infoBorders h1 {
+      font-size: 250%;
+    }
+
+    .landscape {
+      display: inline;
+    }
+
+    .infoBorders h5 {
+      font-weight: 300;
+      margin-top: 2em;
+      margin-bottom: 4em;
+    }
+
+    .soundBackground {
+      left: 130%;
+      top: 93%;
+      width: 5vh;
+      height: 5vh;
+      background-color: transparent !important;
+    }
+
+    .playBtns {
+      font-size: 50%;
+    }
+
+    .extraInfo {
+      left: 180% !important;
+      top: 75%;
+      width: 7vh;
+      background-color: transparent !important;
+    }
+
+    .extraInfo p, .fa-computer-mouse, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
+      display: none;
+    }
+
+    .menuIcons {
+      flex-direction: column;
+    }
+
+    .menuIcons a, .lightBtn {
+      margin-bottom: 1em;
+    }
+
+    .lightBtn {
+      font-size: 150%;
+    }
+
+    .addInfo, .infoBorders {
+      padding: 1.5em;
+    }
+
+    .populationInfo p {
+      font-weight: 200;
+      margin: 5em 0;
+    }
+
+    .populationInfo ul  {
+      margin: 3em 0 !important;
+      padding-inline-start: 0;
+    }
+
+    .populationInfo li {
+      margin-bottom: 2.5em !important;
+    }
+
+    .iconSection a {
+      margin-right: 2em;
+    }
+
+    .dleo {
+      font-size: 50%;
+      padding: 2em !important;
+      margin-top: 10em !important;
+    }
+
+    .giMoonOrbit {
+      height: 1.5em !important;
+      width: 1.5em !important;
+      margin-right: 1em !important;
+    }
+
+    .loadingContainer {
+      width: 60vh;
+    }
+
+    .loadingContainer h1, .loadingContainer p {
+      font-size: 65%;
+    }
+
+    .gmoLoading {
+      font-size: 85%;
+    }
+
+    h5 {
+      line-height: 3.5em;
+    }
+
+    p {
+      line-height: 4em;
+    }
+  }
+
+  @media only screen 
+  and (min-device-width: 360px) 
+  and (max-device-height: 740px) 
+  and (orientation : landscape) 
+  and (-webkit-device-pixel-ratio: 4){
+    .annotation {
+      font-size: 30%;
+      width: 40vh;
+    }
+
+    .infoBorders, .addInfo {
+      padding: 2.5em;
+    }
+
+    .infoBorders h5 {
+      font-weight: 400;
+      margin-top: 5em !important;
+    }
+
+    .addInfo p {
+      font-size: 7px;
+      font-weight: 200;
+    }
+
+    .extraInfo p, .fa-computer-mouse, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
+      display: none;
+    }
+
+    .menuIcons {
+      flex-direction: column;
+    }
+
+    .extraInfo {
+      left: 380% !important;
+      top: 70%;
+      width: 7vh;
+      background-color: transparent !important;
+    }
+
+    .soundBackground {
+      background-color: transparent !important;
+      left: 250%;
+      top: 90%;
+    }
+
+    .credits {
+      font-size: 6px !important;
+    }
+
+    .menuIcons a, .lightBtn {
+      margin-bottom: 1em;
+    }
+
+    .playBtns {
+      font-size: 50%;
+    }
+
+    .lightBtn {
+      font-size: 150%;
+    }
+
+    .populationInfo ul  {
+      margin: 3em 0 !important;
+      padding-inline-start: 0;
+    }
+
+    .populationInfo li {
+      margin-bottom: 3em !important;
+    }
+
+    .logoTitleText, .logoTitleBeta {
+      font-size: 8px !important;
+    }
+
+    .population {
+      font-size: 8px;
+    }
+
+    .home-btn {
+      padding: .6em;
+    }
+
+    .infoBorders h5 {
+      margin-bottom: 4em;
+    }
+
+    .infoBorders p {
+      font-size: 150%;
+    }
+    .viewDiv p {
+      font-size: 7px;
+      font-weight: 300;
+    }
+
+    .viewDiv a {
+      font-size: 8px;
+    }
+
+    .iconSection a {
+      margin-right: 2em;
+    }
+
+    .dleo {
+      font-size: 50%;
+      padding: 2em !important;
+      margin-top: 10em !important;
+    }
+
+    .giMoonOrbit {
+      height: 1.5em !important;
+      width: 1.5em !important;
+      margin-right: 1em !important;
+    }
+
+    .loadingContainer {
+      width: 60vh;
+    }
+
+    .loadingContainer h1, .loadingContainer p {
+      font-size: 65%;
+    }
+
+    .gmoLoading {
+      font-size: 85%;
+    }
+
+    h5 {
+      line-height: 3.5em;
+    }
+
+    p {
+      line-height: 1.6em;
+    }
+  }
+
+/* iPhone X ----------- */
+@media only screen 
+  and (min-device-width: 360px) 
+  and (max-device-height: 926px) 
+  and (orientation : portrait) 
+  and (-webkit-device-pixel-ratio: 3){
+  /* Styles */
+    .annotation {
+      width: 15vh;
+      font-size: 30%;
+      padding: 5em;
+    }
+
+    .landscape {
+      display: inline;
+    }
+
+    .infoBorders h1 {
+      font-size: 250%;
+    }
+
+    .infoBorders h5 {
+      font-weight: 300;
+      margin-top: 2em;
+      margin-bottom: 4em;
+    }
+
+    .soundBackground {
+      left: 130%;
+      top: 93%;
+      width: 5vh;
+      height: 5vh;
+      background-color: transparent !important;
+    }
+
+    .playBtns {
+      font-size: 50%;
+    }
+
+    .extraInfo {
+      left: 175% !important;
+      top: 75%;
+      width: 7vh;
+      background-color: transparent !important;
+    }
+
+    .extraInfo p, .fa-computer-mouse, .fa-location-dot, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
+      display: none !important;
+    }
+
+    .menuIcons {
+      flex-direction: column;
+    }
+
+    .menuIcons a, .lightBtn {
+      margin-bottom: 1em;
+    }
+
+    .lightBtn {
+      font-size: 150%;
+    }
+
+    .addInfo, .infoBorders {
+      padding: 1.5em;
+    }
+
+    .populationInfo p {
+      font-weight: 200;
+      margin: 5em 0;
+    }
+
+    .populationInfo ul  {
+      margin: 3em 0 !important;
+      padding-inline-start: 0;
+    }
+
+    .populationInfo li {
+      margin-bottom: 2.5em !important;
+    }
+    .giMoonOrbit {
+      height: 3em !important;
+      width: 3em !important;
+      margin-right: 1em !important;
+    }
+    .dleo {
+      font-size: 50%;
+      padding: 2em !important;
+      margin-top: 10em !important;
+    }
+    .gmoLoading {
+      font-size: 75%;
+    }
+    .loadingContainer h1, .loadingContainer p {
+      font-size: 80%;
+    }
+    .iconSection a {
+      margin-right: 2em;
+    }
+
+    h5 {
+      line-height: 3.5em;
+    }
+
+    p {
+      line-height: 4em;
+    }
+  }
+  
+@media only screen 
+  and (min-device-width: 375px)
+  and (max-device-height: 896px) 
+  and (orientation : landscape) 
+  and (-webkit-device-pixel-ratio: 3){
+/* Styles */
+  .annotation {
+    font-size: 30%;
+    width: 40vh;
+  }
+  .infoBorders, .addInfo {
+    padding: 2.5em;
+  }
+
+  .infoBorders h5 {
+    font-weight: 400;
+    margin-top: 5em !important;
+  }
+
+  .addInfo p {
+    font-size: 7px;
+    font-weight: 200;
+  }
+
+  .extraInfo p, .fa-computer-mouse, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
+    display: none;
+  }
+
+  .menuIcons {
+    flex-direction: column;
+  }
+
+  .extraInfo {
+    left: 380% !important;
+    top: 70%;
+    width: 7vh;
+    background-color: transparent !important;
+  }
+
+  .soundBackground {
+    background-color: transparent !important;
+    left: 250%;
+    top: 90%;
+  }
+
+  .credits {
+    font-size: 6px !important;
+  }
+
+  .menuIcons a, .lightBtn {
+    margin-bottom: 1em;
+  }
+
+  .playBtns {
+    font-size: 50%;
+  }
+
+  .lightBtn {
+    font-size: 150%;
+  }
+
+  .populationInfo ul  {
+    margin: 3em 0 !important;
+    padding-inline-start: 0;
+  }
+
+  .populationInfo li {
+    margin-bottom: 3em !important;
+  }
+
+  .logoTitleText, .logoTitleBeta {
+    font-size: 8px !important;
+  }
+
+  .population {
+    font-size: 8px;
+  }
+
+  .home-btn {
+    padding: .6em;
+  }
+
+  .infoBorders h5 {
+    margin-bottom: 4em;
+  }
+
+  .infoBorders p {
+    font-size: 150%;
+  }
+
+  .viewDiv p {
+    font-size: 7px;
+    font-weight: 300;
+  }
+
+  .viewDiv a {
+    font-size: 8px;
+  }
+
+  .giMoonOrbit {
+    height: 2em !important;
+    width: 2em !important;
+    margin-right: 1em !important;
+  }
+  .gmoLoading {
+    font-size: 85%;
+  }
+  .loadingContainer {
+    width: 60vh;
+  }
+  .loadingContainer h1, .loadingContainer p {
+    font-size: 65%;
+  }
+  .iconSection a {
+    margin-right: 2em;
+  }
+  .dleo {
+    font-size: 50%;
+    padding: 2em !important;
+    margin-top: 10em !important;
+  }
+
+  h5 {
+    line-height: 3.5em;
+  }
+
+  p {
+    line-height: 1.5em;
+  }
+}
+
+/* iPhone XS Max, XR ----------- */
+@media only screen 
+  and (device-width : 414px) 
+  and (device-height : 896px) 
+  and (orientation : portrait) 
+  and (-webkit-device-pixel-ratio: 2){
+  /* Styles */
+  .annotation {
+    width: 15vh;
+    font-size: 30%;
+    padding: 5em;
+  }
+
+  .landscape {
+    display: inline;
+  }
+
+  .infoBorders h1 {
+    font-size: 250%;
+  }
+
+  .infoBorders h5 {
+    font-weight: 300;
+    margin-top: 2em;
+    margin-bottom: 4em;
+  }
+
+  h5, p {
+    line-height: 1rem;
+  }
+
+  .soundBackground {
+    left: 130%;
+    top: 93%;
+    width: 5vh;
+    height: 5vh;
+    background-color: transparent !important;
+  }
+
+  .playBtns {
+    font-size: 50%;
+  }
+
+  .extraInfo {
+    left: 175% !important;
+    top: 60%;
+    width: 7vh;
+    background-color: transparent !important;
+  }
+
+  .extraInfo p, .fa-computer-mouse, .fa-location-dot, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
+    display: none !important;
+  }
+
+  .menuIcons {
+    flex-direction: column;
+  }
+
+  .menuIcons a, .lightBtn {
+    margin-bottom: 1em;
+  }
+
+  .lightBtn {
+    font-size: 150%;
+  }
+
+  .addInfo, .infoBorders {
+    padding: 1.5em;
+  }
+
+  .populationInfo p {
+    font-weight: 200;
+    margin: 5em 0;
+  }
+
+  .populationInfo ul  {
+    margin: 3em 0 !important;
+    padding-inline-start: 0;
+  }
+
+  .populationInfo li {
+    margin-bottom: 2.5em !important;
+  }
+  .giMoonOrbit {
+    height: 3em !important;
+    width: 3em !important;
+    margin-right: 1em !important;
+  }
+  .dleo {
+    font-size: 50%;
+    padding: 2em !important;
+    margin-top: 10em !important;
+  }
+  .gmoLoading {
+    font-size: 75%;
+  }
+  .loadingContainer h1, .loadingContainer p {
+    font-size: 80%;
+  }
+  .iconSection a {
+    margin-right: 2em;
+  }
+  }
+  
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-height: 767px) 
+  and (orientation : landscape) 
+  and (-webkit-device-pixel-ratio: 2){
+  /* Styles */
+  .annotation {
+    font-size: 30%;
+    width: 40vh;
+  }
+  .infoBorders, .addInfo {
+    padding: 2.5em;
+  }
+
+  .infoBorders h5 {
+    font-weight: 400;
+    margin-top: 5em !important;
+  }
+
+  .addInfo p {
+    font-size: 7px;
+    font-weight: 200;
+  }
+
+  .extraInfo p, .fa-computer-mouse, .fa-location-dot, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
+    display: none;
+  }
+
+  .menuIcons {
+    flex-direction: column;
+  }
+
+  .extraInfo {
+    left: 380% !important;
+    top: 45%;
+    width: 7vh;
+    background-color: transparent !important;
+  }
+
+  .soundBackground {
+    background-color: transparent !important;
+    left: 250%;
+    top: 90%;
+  }
+
+  .credits {
+    font-size: 6px !important;
+  }
+
+  .menuIcons a, .lightBtn {
+    margin-bottom: 1em;
+  }
+
+  .playBtns {
+    font-size: 50%;
+  }
+
+  .lightBtn {
+    font-size: 150%;
+  }
+
+  .populationInfo ul  {
+    margin: 3em 0 !important;
+    padding-inline-start: 0;
+  }
+
+  .populationInfo li {
+    margin-bottom: 3em !important;
+  }
+
+  .logoTitleText, .logoTitleBeta {
+    font-size: 8px !important;
+  }
+
+  .population {
+    font-size: 8px;
+  }
+
+  .home-btn {
+    padding: .6em;
+  }
+  h5 {
+    line-height: 3.5em;
+  }
+
+  .infoBorders h5 {
+    margin-bottom: 4em;
+  }
+
+  .infoBorders p {
+    font-size: 150%;
+  }
+
+  .viewDiv p {
+    font-size: 7px;
+    font-weight: 300;
+  }
+
+  .viewDiv a {
+    font-size: 8px;
+  }
+
+  .giMoonOrbit {
+    height: 2em !important;
+    width: 2em !important;
+    margin-right: 1em !important;
+  }
+  .gmoLoading {
+    font-size: 85%;
+  }
+  .loadingContainer {
+    width: 60vh;
+  }
+  .loadingContainer h1, .loadingContainer p {
+    font-size: 65%;
+  }
+  .iconSection a {
+    margin-right: 2em;
+  }
+  .dleo {
+    font-size: 50%;
+    padding: 2em !important;
+    margin-top: 10em !important;
+  }
+}
+
+@media only screen 
+  and (orientation : portrait)   
+  and (-webkit-min-device-pixel-ratio: 2.75) {
+  .annotation {
+    width: 15vh;
+    font-size: 30%;
+    padding: 5em;
+  }
+
+  .landscape {
+    display: inline;
+  }
+
+  .infoBorders h1 {
+    font-size: 250%;
+  }
+
+  .infoBorders h5 {
+    font-weight: 300;
+    margin-top: 2em;
+    margin-bottom: 4em;
+  }
+
+  h5, p {
+    line-height: 3.5em;
+  }
+
+  .soundBackground {
+    left: 130%;
+    top: 93%;
+    width: 5vh;
+    height: 5vh;
+    background-color: transparent !important;
+  }
+
+  .playBtns {
+    font-size: 50%;
+  }
+
+  .extraInfo {
+    left: 175% !important;
+    top: 75%;
+    width: 7vh;
+    background-color: transparent !important;
+  }
+
+  .extraInfo p, .fa-computer-mouse, .fa-location-dot, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
+    display: none !important;
+  }
+
+  .menuIcons {
+    flex-direction: column;
+  }
+
+  .menuIcons a, .lightBtn {
+    margin-bottom: 1em;
+  }
+
+  .lightBtn {
+    font-size: 150%;
+  }
+
+  .addInfo, .infoBorders {
+    padding: 1.5em;
+  }
+
+  .populationInfo p {
+    font-weight: 200;
+    margin: 5em 0;
+  }
+
+  .populationInfo ul  {
+    margin: 3em 0 !important;
+    padding-inline-start: 0;
+  }
+
+  .populationInfo li {
+    margin-bottom: 2.5em !important;
+  }
+  .giMoonOrbit {
+    height: 3em !important;
+    width: 3em !important;
+    margin-right: 1em !important;
+  }
+  .dleo {
+    font-size: 50%;
+    padding: 2em !important;
+    margin-top: 10em !important;
+  }
+  .gmoLoading {
+    font-size: 75%;
+  }
+  .loadingContainer h1, .loadingContainer p {
+    font-size: 80%;
+  }
+  .iconSection a {
+    margin-right: 2em;
+  }
+}
+
+@media only screen 
+  and (orientation : landscape)   
+  and (-webkit-min-device-pixel-ratio: 2.75) {
+      /* Styles */
+  .annotation {
+    font-size: 30%;
+    width: 40vh;
+  }
+  .infoBorders, .addInfo {
+    padding: 2.5em;
+  }
+
+  .infoBorders h5 {
+    font-weight: 400;
+    margin-top: 5em !important;
+  }
+
+  .addInfo p {
+    font-size: 7px;
+    font-weight: 200;
+  }
+
+  .extraInfo p, .fa-computer-mouse, .fa-location-dot, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
+    display: none;
+  }
+
+  .menuIcons {
+    flex-direction: column;
+  }
+
+  .extraInfo {
+    left: 380% !important;
+    top: 65%;
+    width: 7vh;
+    background-color: transparent !important;
+  }
+
+  .soundBackground {
+    background-color: transparent !important;
+    left: 250%;
+    top: 90%;
+  }
+
+  .credits {
+    font-size: 6px !important;
+  }
+
+  .menuIcons a, .lightBtn {
+    margin-bottom: 1em;
+  }
+
+  .playBtns {
+    font-size: 50%;
+  }
+
+  .lightBtn {
+    font-size: 150%;
+  }
+
+  .populationInfo ul  {
+    margin: 3em 0 !important;
+    padding-inline-start: 0;
+  }
+
+  .populationInfo li {
+    margin-bottom: 3em !important;
+  }
+
+  .logoTitleText, .logoTitleBeta {
+    font-size: 8px !important;
+  }
+
+  .population {
+    font-size: 8px;
+  }
+
+  .home-btn {
+    padding: .6em;
+  }
+  h5 {
+    line-height: 3.5em;
+  }
+
+  .infoBorders h5 {
+    margin-bottom: 4em;
+  }
+
+  .infoBorders p {
+    font-size: 150%;
+  }
+
+  .viewDiv p {
+    font-size: 7px;
+    font-weight: 300;
+  }
+
+  .viewDiv a {
+    font-size: 8px;
+  }
+
+  .giMoonOrbit {
+    height: 2em !important;
+    width: 2em !important;
+    margin-right: 1em !important;
+  }
+  .gmoLoading {
+    font-size: 85%;
+  }
+  .loadingContainer {
+    width: 60vh;
+  }
+  .loadingContainer h1, .loadingContainer p {
+    font-size: 65%;
+  }
+  .iconSection a {
+    margin-right: 2em;
+  }
+  .dleo {
+    font-size: 50%;
+    padding: 2em !important;
+    margin-top: 10em !important;
+  }
+  }
+
+  @media only screen 
+  and (-webkit-min-device-pixel-ratio: 2.625)
+  and (orientation : portrait) {
+    .annotation {
+      width: 15vh;
+      font-size: 30%;
+      padding: 5em;
+    }
+
+    .landscape {
+      display: inline;
+    }
+  
+    .infoBorders h1 {
+      font-size: 250%;
+    }
+  
+    .infoBorders h5 {
+      font-weight: 300;
+      margin-top: 2em;
+      margin-bottom: 4em;
+    }
+  
+    h5, p {
+      line-height: 1rem;
+    }
+  
+    .soundBackground {
+      left: 130%;
+      top: 93%;
+      width: 5vh;
+      height: 5vh;
+      background-color: transparent !important;
+    }
+  
+    .playBtns {
+      font-size: 50%;
+    }
+  
+    .extraInfo {
+      left: 165% !important;
+      top: 50%;
+      width: 7vh;
+      background-color: transparent !important;
+    }
+  
+    .extraInfo p, .fa-computer-mouse, .fa-location-dot, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
+      display: none !important;
+    }
+  
+    .menuIcons {
+      flex-direction: column;
+    }
+  
+    .menuIcons a, .lightBtn {
+      margin-bottom: 1em;
+    }
+  
+    .lightBtn {
+      font-size: 150%;
+    }
+  
+    .addInfo, .infoBorders {
+      padding: 1.5em;
+    }
+  
+    .populationInfo p {
+      font-weight: 200;
+      margin: 5em 0;
+    }
+  
+    .populationInfo ul  {
+      margin: 3em 0 !important;
+      padding-inline-start: 0;
+    }
+  
+    .populationInfo li {
+      margin-bottom: 2.5em !important;
+    }
+    .giMoonOrbit {
+      height: 3em !important;
+      width: 3em !important;
+      margin-right: 1em !important;
+    }
+    .dleo {
+      font-size: 50%;
+      padding: 2em !important;
+      margin-top: 10em !important;
+    }
+    .gmoLoading {
+      font-size: 75%;
+    }
+    .loadingContainer h1, .loadingContainer p {
+      font-size: 80%;
+    }
+    .iconSection a {
+      margin-right: 2em;
+    }
+  }
+
+  @media only screen 
+    and (-webkit-min-device-pixel-ratio: 2.625)
+    and (orientation : landscape) {
+      /* Styles */
+  .annotation {
+    font-size: 30%;
+    width: 40vh;
+  }
+  .infoBorders, .addInfo {
+    padding: 2.5em;
+  }
+
+  .infoBorders h5 {
+    font-weight: 400;
+    margin-top: 5em !important;
+  }
+
+  .addInfo p {
+    font-size: 7px;
+    font-weight: 200;
+    padding: 1em;
+  }
+
+  .extraInfo p, .fa-computer-mouse, .fa-location-dot, .closeBtn, .audioSection, .headphoneBtn, .hoverName {
+    display: none;
+  }
+
+  .menuIcons {
+    flex-direction: column;
+  }
+
+  .extraInfo {
+    left: 380% !important;
+    top: 45%;
+    width: 7vh;
+    background-color: transparent !important;
+  }
+
+  .soundBackground {
+    background-color: transparent !important;
+    left: 250%;
+    top: 90%;
+  }
+
+  .credits {
+    font-size: 6px !important;
+  }
+
+  .menuIcons a, .lightBtn {
+    margin-bottom: 1em;
+  }
+
+  .playBtns {
+    font-size: 50%;
+  }
+
+  .lightBtn {
+    font-size: 150%;
+  }
+
+  .populationInfo ul  {
+    margin: 3em 0 !important;
+    padding-inline-start: 0;
+  }
+
+  .populationInfo li {
+    margin-bottom: 3em !important;
+  }
+
+  .logoTitleText, .logoTitleBeta {
+    font-size: 8px !important;
+  }
+
+  .population {
+    font-size: 8px;
+  }
+
+  .home-btn {
+    padding: .6em;
+  }
+  h5, p {
+    line-height: .85rem;
+  }
+
+  .infoBorders h5 {
+    margin-bottom: 4em;
+  }
+
+  .infoBorders p {
+    font-size: 150%;
+  }
+
+  .viewDiv p {
+    font-size: 7px;
+    font-weight: 300;
+  }
+
+  .viewDiv a {
+    font-size: 8px;
+  }
+
+  .giMoonOrbit {
+    height: 2em !important;
+    width: 2em !important;
+    margin-right: 1em !important;
+  }
+  .gmoLoading {
+    font-size: 85%;
+  }
+  .loadingContainer {
+    width: 60vh;
+  }
+  .loadingContainer h1, .loadingContainer p {
+    font-size: 65%;
+  }
+  .iconSection a {
+    margin-right: 2em;
+  }
+  .dleo {
+    font-size: 50%;
+    padding: 2em !important;
+    margin-top: 10em !important;
+  }
+  }

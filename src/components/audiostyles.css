@@ -1,0 +1,288 @@
+.audioPlayer {
+    --primary: #177c3a;
+    --secondary: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 700px;
+  }
+
+  .audioPlayerBg {
+    width: 20%;
+    margin-left: 1em;
+  }
+  
+  .playPause {
+    background: transparent;
+    border: var(--primary) 1px solid;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 32px;
+    color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+  }
+  
+  .playPause:hover {
+    transform: scale(1.1);
+    background: var(--primary);
+  }
+
+  .play {
+    position: relative;
+    left: 5%;
+    font-size: 50%;
+  }
+  
+  .currentTime,
+  .duration {
+    font-family: monospace;
+    font-size: 12px;
+    margin: 0 1%;
+  }
+  
+  .currentTime {
+    margin-left: 25px;
+  }
+  
+  .progressBar {
+    --bar-bg: transparent;
+    --seek-before-width: 0;
+    --seek-before-color: #1DB954;
+    --knobby: #d2d8e7;
+    --selectedKnobby: #ffffff;
+  
+    appearance: none;
+    background: transparent;
+    border: var(--primary) 1px solid;
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 11px;
+    outline: none;
+  }
+
+  .progressBarBg {
+    display: none;
+  }
+  
+  /* progress bar - safari */
+  .progressBar::-webkit-slider-runnable-track {
+    background: var(--bar-bg);;
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 11px;
+    outline: none;
+  }
+  
+  /* progress bar - firefox */
+  .progressBar::-moz-range-track {
+    background: var(--bar-bg);;
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 11px;
+    outline: none;
+  }
+  
+  .progressBar::-moz-focus-outer {
+    border: 0;
+  }
+  
+  /* progress bar - chrome and safari */
+  .progressBar::before {
+    content: '';
+    height: 11px;
+    width: var(--seek-before-width);
+    background-color: var(--seek-before-color);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+  }
+  
+  /* progress bar - firefox */
+  .progressBar::-moz-range-progress {
+    background-color: var(--seek-before-color);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 11px;
+  }
+  
+  /* knobby - chrome and safari */
+  .progressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--knobby);
+    cursor: pointer;
+    position: relative;
+    margin: -2px 0 0 0;
+    z-index: 3;
+    box-sizing: border-box;
+  }
+  
+  /* knobby while dragging - chrome and safari */
+  .progressBar:active::-webkit-slider-thumb {
+    transform: scale(1.2);
+    background: var(--selectedKnobby);
+  }
+  
+  /* knobby - firefox */
+  .progressBar::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: transparent;
+    background-color: var(--knobby);
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+    box-sizing: border-box;
+  }
+  
+  /* knobby while dragging - firefox */
+  .progressBar:active::-moz-range-thumb {
+    transform: scale(1.2);
+    background: var(--selectedKnobby);
+  }
+
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+/* Portrait and Landscape */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (-webkit-min-device-pixel-ratio: 2) {
+
+  .audioPlayer {
+    width: 280px;
+    margin: 2em;
+  }
+
+  .playPause {
+    width: 4vh;
+    height: 3.5vh;
+  }
+
+  .currentTime {
+    margin-left: 15px;
+  }
+
+  .duration {
+    margin-left: 10px;
+  }
+}
+
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+/* Portrait */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .audioPlayer {
+      width: 220px;
+    }
+
+    .playPause {
+      width: 3.5vh;
+      height: 3vh;
+    }
+
+    .play {
+      font-size: 30%;
+    }
+  }
+
+  /* Landscape */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (orientation: landscape) 
+and (-webkit-min-device-pixel-ratio: 2) {
+  .audioPlayer {
+    width: 220px;
+  }
+
+  .play {
+    font-size: 30%;
+  }
+}
+
+/* ----------- iPad Pro 10.5" ----------- */
+/* Landscape */
+@media only screen 
+  and (min-device-width: 1112px) 
+  and (max-device-width: 1112px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .audioPlayer {
+      width: 220px;
+      margin: 1em 0;
+    }
+
+    .playPause {
+      width: 4vh;
+      height: 3.5vh;
+    }
+
+    .play {
+      font-size: 30%;
+    }
+
+    .currentTime, .duration {
+      margin-left: 10px;
+    }
+  }
+
+  /* Landscape */
+@media only screen 
+and (min-device-width: 1366px) 
+and (max-device-width: 1366px)  
+and (-webkit-min-device-pixel-ratio: 2) {
+  .audioPlayer {
+    width: 200px;
+    margin: .5em;
+  }
+
+  .duration {
+    margin-left: .5em;
+  }
+
+  .playPause {
+    width: 30px;
+    height: 30px;
+  }
+
+  .play {
+    font-size: 35%;
+  }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 1112px) 
+  and (max-device-width: 1194px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .audioPlayer {
+      width: 250px;
+      margin: 1em;
+    }
+
+    .duration {
+      margin-left: 1em;
+    }
+  }

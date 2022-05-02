@@ -1,0 +1,56 @@
+{
+  "name": "space-map",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.0",
+    "@fortawesome/free-solid-svg-icons": "^6.1.0",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "@react-three/cannon": "^5.0.0",
+    "@react-three/drei": "^8.8.3",
+    "@react-three/fiber": "^7.0.26",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.26.1",
+    "howler": "^2.2.3",
+    "imagekitio-react": "^1.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-globe": "^5.0.2",
+    "react-globe.gl": "^2.22.0",
+    "react-icons": "^4.3.1",
+    "react-modal-image-responsive": "^1.1.1",
+    "react-player": "^2.10.0",
+    "react-scripts": "^5.0.0",
+    "react-router-dom": "^6.3.0",
+    "recoil": "^0.6.1",
+    "styled-components": "^5.3.3",
+    "three": "^0.137.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
