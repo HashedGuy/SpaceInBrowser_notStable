@@ -3,7 +3,7 @@ import { OrbitControls, Stars } from '@react-three/drei';
 import React, {useRef} from 'react';
 import * as THREE from 'three'
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { clickedCBState, closedAudioG, launchpads, lights, showActions, stations } from './globalState';
+import { clickedCBState, closedAudioG, focusCamera, launchpads, lights, showActions, stations } from './globalState';
 import {Landing} from './InfoBox/Landing';
 
 import { TextureLoader } from 'three';
@@ -45,6 +45,8 @@ export function Earth(props) {
   const showAction = useRecoilValue(showActions)
   const light = useRecoilValue(lights)
   const station = useRecoilValue(stations)
+  const [cameraFocus, setCamera] = useRecoilState(focusCamera)
+  const vec = new THREE.Vector3()
 
   const earthRef = useRef();
   const cloudsRef = useRef();
@@ -205,6 +207,14 @@ export function Earth(props) {
       : (cloudsRef.current.position.z = 0)
   });
 
+  useFrame(state => {
+    if (cameraFocus==='') {
+      state.camera.lookAt(cloudsRef.current.position)
+      state.camera.position.lerp(vec.set(cloudsRef.current.position.x, cloudsRef.current.position.y, cloudsRef.current.position.z - 2), .01)
+    } 
+    return null
+  })
+
   const sphere = (x) => new THREE.SphereGeometry(x, 36, 36)
 
   return (
@@ -281,7 +291,7 @@ export function Earth(props) {
           enableZoom={false}
           enablePan={true}
           enableRotate={true}
-          panSpeed={0.5}
+          panSpeed={0.9}
           rotateSpeed={.9}
         />
       </mesh>

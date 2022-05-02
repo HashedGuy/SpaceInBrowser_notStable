@@ -1,7 +1,7 @@
 import { Html } from '@react-three/drei'
 import React, { useEffect, useState, useRef } from 'react'
-import { useRecoilState, useRecoilValue } from 'recoil'
-import { clickedCBState, closedAudioG, launchpads, lights, showActions, stations } from '../globalState'
+import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil'
+import { clickedCBState, closedAudioG, focusCamera, launchpads, lights, showActions, stations } from '../globalState'
 import {Link, Route, Routes} from 'react-router-dom'
 
 import Whistler from '../../assets/sounds/Whistler.wav'
@@ -32,6 +32,7 @@ import {AiOutlineCloseCircle, AiFillCaretDown, AiFillCaretUp} from 'react-icons/
 import ReactPlayer from 'react-player'
 import { IKImage, IKContext, IKUpload } from 'imagekitio-react'
 import ModalImage from "react-modal-image-responsive";
+import { Camera } from 'three'
 
 
 
@@ -48,6 +49,7 @@ export function Landing() {
     const [closedAudio, setCloseAudio] = useRecoilState(closedAudioG)
     const [isPlaying, setIsPlaying] = useState(false);
     const [song, setSong] = useState('')
+    const [camera, setCamera] = useRecoilState(focusCamera)
 
     const audioPlayerBg = useRef()
 
@@ -1058,6 +1060,7 @@ export function Landing() {
                          setLight('')
                          setAction('')
                          setLaunchPad('')
+                         setCamera('moon')
                         }} 
                        title="Moon">
                       <i className="fa-solid fa-moon"></i>
@@ -1085,6 +1088,7 @@ export function Landing() {
                           setAction('')
                           setLaunchPad('')
                           setCloseAudio(true)
+                          setCamera('')
                         }} 
                       title="Moon orbiting Earth">
                       <GiMoonOrbit/>
@@ -1097,7 +1101,9 @@ export function Landing() {
                         setObject('')
                         setLight('')
                         setAction('')
-                        setLaunchPad('')}} 
+                        setLaunchPad('')
+                        setCamera('')
+                      }} 
                       title="Home">
                     <i className="fas fa-home"></i>
                     </a>

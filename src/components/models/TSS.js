@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei' 
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { clickedCBState, stations } from '../globalState'
@@ -6,6 +6,7 @@ import { useFrame, extend } from '@react-three/fiber';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import Font from "../../assets/fontMedium.json"
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
+import * as THREE from 'three'
 
 extend({ TextGeometry })
 
@@ -15,6 +16,8 @@ export default function Model({ ...props }) {
 
   const [activeObject, setObject] = useRecoilState(clickedCBState)
   const station = useRecoilValue(stations)
+  const [clicked, setClicked] = useState(false)
+  const vec = new THREE.Vector3()
 
   const tssRef = useRef()
   const tssTextRef = useRef()
@@ -50,16 +53,23 @@ export default function Model({ ...props }) {
     const y = yRadius* Math.cos(elapsedTime)
     tssTextRef.current.position.x = x;
     tssTextRef.current.position.z = z;
-    tssTextRef.current.position.y = y;
+    tssTextRef.current.position.y = y  + .02;
 
   });
 
+  useFrame(state => {
+    if (clicked) {
+      state.camera.lookAt(tssTextRef.current.position)
+      state.camera.position.lerp(vec.set(tssRef.current.position.x - .2, tssRef.current.position.y, tssRef.current.position.z ), .01)
+    }
+    return null
+  })
   const font = new FontLoader().parse(Font);
 
   const textOptions = {
     font,
-    size: (activeObject==='LEO') || (activeObject==='earth') ? .04: 0,
-    height: .009
+    size: ((activeObject==='LEO') && (!clicked)) || (activeObject==='earth') ? .04 : ((activeObject==='LEO') && (clicked)) ? .01 : 0,
+    height: .003
   };
   
 
@@ -68,6 +78,7 @@ export default function Model({ ...props }) {
     <mesh
       ref={tssTextRef}
       position={[xRadius, yRadius, zRadius]}
+      onClick={()=>setClicked(true)}
     >
        <textGeometry attach='geometry' args={['    TSS', textOptions]} />
         <meshStandardMaterial attach='material' color={'white'} />

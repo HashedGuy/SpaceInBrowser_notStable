@@ -1,11 +1,12 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei'
-import { clickedCBState, stations } from '../globalState';
+import { clickedCBState, focusCamera, stations } from '../globalState';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { useFrame, extend } from '@react-three/fiber';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import Font from "../../assets/fontMedium.json"
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
+import * as THREE from 'three'
 
 extend({ TextGeometry })
 
@@ -15,6 +16,8 @@ export default function Model({ ...props }) {
 
   const [activeObject, setObject] = useRecoilState(clickedCBState)
   const station = useRecoilValue(stations)
+  const [cameraFocus, setCamera] = useRecoilState(focusCamera)
+  const vec = new THREE.Vector3()
 
   const issRef = useRef()
   const issTextRef = useRef()
@@ -40,22 +43,30 @@ export default function Model({ ...props }) {
 
   useFrame(({ clock }) => {
     let elapsedTime
-   {activeObject === 'LEO' ? (elapsedTime = clock.getElapsedTime() * .006) : (elapsedTime = clock.getElapsedTime() * .05)}
+   {activeObject === 'LEO' ? (elapsedTime = clock.getElapsedTime() * .006) : (elapsedTime = clock.getElapsedTime() * .07)}
     
     const x = xRadius* Math.sin(elapsedTime)
     const z = zRadius* Math.cos(elapsedTime)
     const y = yRadius* Math.cos(elapsedTime)
     issTextRef.current.position.x = x;
     issTextRef.current.position.z = z;
-    issTextRef.current.position.y = y;
+    issTextRef.current.position.y = y + .02;
 
   });
+
+  useFrame(state => {
+    if (cameraFocus==='ISS') {
+      state.camera.lookAt(issTextRef.current.position)
+      state.camera.position.lerp(vec.set(issRef.current.position.x, issRef.current.position.y - .2, issRef.current.position.z ), .01)
+    } 
+    return null
+  })
 
   const font = new FontLoader().parse(Font);
 
   const textOptions = {
     font,
-    size: (activeObject==='LEO') || (activeObject==='earth') ? .04: 0,
+    size: ((activeObject==='LEO') && (cameraFocus!=='ISS')) || (activeObject==='earth') ? .04 : ((activeObject==='LEO') && (cameraFocus==='ISS')) ? .01 : 0,
     height: .009
   };
   
@@ -65,6 +76,7 @@ export default function Model({ ...props }) {
     <mesh
       ref={issTextRef}
       position={[xRadius, yRadius, zRadius]}
+      onClick={()=>setCamera('ISS')}
     >
        <textGeometry attach='geometry' args={['    ISS', textOptions]} />
         <meshStandardMaterial attach='material' color={'white'} />

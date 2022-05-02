@@ -31,3 +31,8 @@ export const closedAudioG = atom({
     default: true
 })
 
+export const focusCamera= atom({
+    key: 'focusCamera',
+    default: ''
+})
+

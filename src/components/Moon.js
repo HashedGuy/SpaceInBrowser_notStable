@@ -8,7 +8,7 @@ import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 import { TextureLoader } from 'three';
 import MoonMap from "../assets/2k_moon.jpeg"
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { clickedCBState, showActions } from './globalState';
+import { clickedCBState, focusCamera, showActions } from './globalState';
 
 extend({ TextGeometry })
 
@@ -35,6 +35,8 @@ export function Moon(props) {
   );
 
   const [activeObject, setObject] = useRecoilState(clickedCBState)
+  const [cameraFocus, setCamera] = useRecoilState(focusCamera)
+  const vec = new THREE.Vector3()
 
   const moonRef = useRef()
   let zRadius
@@ -68,6 +70,14 @@ export function Moon(props) {
   });
 
   const showAction = useRecoilValue(showActions)
+
+  useFrame(state => {
+    if (cameraFocus==='moon') {
+      state.camera.lookAt(moonRef.current.position)
+      state.camera.position.lerp(vec.set(moonRef.current.position.x, moonRef.current.position.y, moonRef.current.position.z + 5), .01)
+    } 
+    return null
+  })
 
 
 
