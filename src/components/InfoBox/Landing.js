@@ -191,7 +191,7 @@ export function Landing() {
                 setAction('')
                 setLaunchPad('')}}
             />
-          <p className='versionName' style={{}}> <a href='https://sib1.netlify.app/docs' target='_blank'>Beta Version 1.0.0</a></p>
+           <a href='https://sib1.netlify.app/docs' target='_blank'><p className='versionName' style={{}}>Beta Version 1.0.0</p></a>
           </>            }
          
           
