@@ -2,7 +2,7 @@
 
 Travel space in your browser: https://spaceinbrowser.com/ 
 
-![SIB Logo](/public/logo/logo_transparent.png)
+![SIB Logo](/public/logo/logo_transparent_50.png)
 
 ## Description
 
