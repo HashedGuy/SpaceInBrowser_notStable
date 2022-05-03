@@ -210,7 +210,7 @@ export function Earth(props) {
   useFrame(state => {
     if (cameraFocus==='') {
       state.camera.lookAt(cloudsRef.current.position)
-      state.camera.position.lerp(vec.set(cloudsRef.current.position.x, cloudsRef.current.position.y, cloudsRef.current.position.z - 2), .01)
+      state.camera.position.lerp(vec.set(cloudsRef.current.position.x, cloudsRef.current.position.y, cloudsRef.current.position.z - 5), .01)
     } 
     return null
   })

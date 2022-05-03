@@ -14,20 +14,21 @@
    
   }
 
-  .versionsContainer p {
+  .versionsTable p {
     transition:  all .2s ease-in-out;
   }
 
-  .versionsContainer p:hover {
+  .versionsTable p:hover {
       transform: scale(1.05);
   }
 
   .versionsTable {
       /* border-right: 1px solid purple; */
-      padding: 1em;
+      padding: .5em;
       height: 100vh;
+      width: 15vw !important;
       padding-right: 3em;
-      box-shadow:  10px 0px 55px purple;
+      box-shadow:  10px 0px 45px purple;
   }
   
   .versionsInfo {
@@ -35,6 +36,24 @@
       border-left: 1px solid purple;
       padding: 1em;
       padding-left: 5em;
+      width: 85vh !important;
+  }
+
+  .versionsInfo a {
+      color: rgb(190, 96, 190);
+  }
+
+  .versionsInfo h4 {
+      color: rgb(236, 220, 128);
+      font-size: 150%;
+  }
+
+  .versionsInfo ul {
+      list-style: none;
+  }
+
+  .versionsInfo li {
+      margin-bottom: 1em;
   }
 
   .majorRelease {
@@ -48,4 +67,16 @@
 
   .titleVersion {
       color: goldenrod;
+  }
+
+  .btc {
+      background-color: rgba(255, 255, 0, 0.233);
+  }
+
+  .eth {
+      background-color: rgba(0, 255, 255, 0.11);
+  }
+
+  .btc, .eth {
+      border-radius: 5px;
   }
