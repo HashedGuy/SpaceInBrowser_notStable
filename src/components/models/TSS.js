@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei' 
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { clickedCBState, stations } from '../globalState'
+import { clickedCBState, focusCamera, stations } from '../globalState'
 import { useFrame, extend } from '@react-three/fiber';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import Font from "../../assets/fontMedium.json"
@@ -16,7 +16,7 @@ export default function Model({ ...props }) {
 
   const [activeObject, setObject] = useRecoilState(clickedCBState)
   const station = useRecoilValue(stations)
-  const [clicked, setClicked] = useState(false)
+  const [camera, setCamera] = useRecoilState(focusCamera)
   const vec = new THREE.Vector3()
 
   const tssRef = useRef()
@@ -58,9 +58,9 @@ export default function Model({ ...props }) {
   });
 
   useFrame(state => {
-    if (clicked) {
-      state.camera.lookAt(tssTextRef.current.position)
-      state.camera.position.lerp(vec.set(tssRef.current.position.x - .2, tssRef.current.position.y, tssRef.current.position.z ), .01)
+    if (camera==='TSS') {
+      state.camera.lookAt(tssRef.current.position.x, tssRef.current.position.y, tssRef.current.position.z)
+      state.camera.position.lerp(vec.set(tssRef.current.position.x, tssRef.current.position.y, tssRef.current.position.z), .01)
     }
     return null
   })
@@ -68,7 +68,7 @@ export default function Model({ ...props }) {
 
   const textOptions = {
     font,
-    size: ((activeObject==='LEO') && (!clicked)) || (activeObject==='earth') ? .04 : ((activeObject==='LEO') && (clicked)) ? .01 : 0,
+    size: ((activeObject==='LEO') && (camera!=='TSS')) || (activeObject==='earth') ? .04 : ((activeObject==='LEO') && (camera==='TSS')) ? .01 : 0,
     height: .003
   };
   
@@ -78,7 +78,7 @@ export default function Model({ ...props }) {
     <mesh
       ref={tssTextRef}
       position={[xRadius, yRadius, zRadius]}
-      onClick={()=>setClicked(true)}
+      // onClick={()=>setCamera('TSS')}
     >
        <textGeometry attach='geometry' args={['    TSS', textOptions]} />
         <meshStandardMaterial attach='material' color={'white'} />

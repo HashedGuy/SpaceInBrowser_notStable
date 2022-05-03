@@ -54,6 +54,14 @@ export function Earth(props) {
   let xRadius=5
   let zRadius=3.5
 
+  useFrame(state => {
+    if (cameraFocus==='') {
+      // state.camera.lookAt(cloudsRef.current.position.x, cloudsRef.current.position.y, cloudsRef.current.position.z + 2)
+      // state.camera.position.lerp(vec.set(cloudsRef.current.position.x, cloudsRef.current.position.y, cloudsRef.current.position.z - 5), .01)
+    } 
+    return null
+  })
+
   function calcPosFromLatLngRad(lat, lng) {
     var phi = (90 - lat)*(Math.PI/180)
     var theta = (lng+180)*(Math.PI/180)
@@ -206,14 +214,6 @@ export function Earth(props) {
       : activeObject === 'mars' ? (cloudsRef.current.position.z = -2) 
       : (cloudsRef.current.position.z = 0)
   });
-
-  useFrame(state => {
-    if (cameraFocus==='') {
-      state.camera.lookAt(cloudsRef.current.position)
-      state.camera.position.lerp(vec.set(cloudsRef.current.position.x, cloudsRef.current.position.y, cloudsRef.current.position.z - 5), .01)
-    } 
-    return null
-  })
 
   const sphere = (x) => new THREE.SphereGeometry(x, 36, 36)
 

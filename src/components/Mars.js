@@ -5,7 +5,7 @@ import * as THREE from 'three'
 import { TextureLoader } from 'three';
 import MarsMap from "../assets/compressed/2k_mars(1).jpg"
 import { useRecoilState } from 'recoil';
-import { clickedCBState } from './globalState';
+import { clickedCBState, focusCamera } from './globalState';
 
 function Ecliptic({ xRadius = 1, zRadius = 1 }) {
   const points = [];
@@ -29,6 +29,8 @@ export function Mars(props) {
   );
 
   const [activeObject, setObject] = useRecoilState(clickedCBState)
+  const [cameraFocus, setCamera] = useRecoilState(focusCamera)
+  const vec = new THREE.Vector3()
 
  
   const marsRef = useRef()
@@ -52,9 +54,15 @@ export function Mars(props) {
     const z = zRadius* Math.cos(elapsedTime)
     marsRef.current.position.x = x;
     marsRef.current.position.z = z;
-    // activeObject === 'mars' ? (marsRef.current.rotation.y += .005) : (marsRef.current.rotation.y += 0)
-
   });
+
+  useFrame(state => {
+    if (cameraFocus==='mars') {
+      state.camera.lookAt(marsRef.current.position)
+      state.camera.position.lerp(vec.set(marsRef.current.position.x, marsRef.current.position.y, marsRef.current.position.z + 5), .01)
+    } 
+    return null
+  })
 
   return (
     <>

@@ -193,7 +193,7 @@ export function Landing() {
                 setAction('')
                 setLaunchPad('')}}
             />
-           <a href='https://sib1.netlify.app/docs' target='_blank'><p className='versionName' style={{}}>Beta Version 1.0.0</p></a>
+           <a href='https://sib1.netlify.app/docs' target='_blank'><p className='versionName' style={{}}>Beta Version 1.0.1</p></a>
           </>            }
          
           
@@ -236,7 +236,14 @@ export function Landing() {
               <p>The space station is a spacecraft, which support a human crew to stay in space for a long time. It is also known as orbital stations as it circles the Earth.</p>
               <p>Currently, two active space stations serve as a base for people in space. You can see them travelling around the earth (in <span style={{"color":"yellow"}}>--</span> and <span style={{"color":"red"}}>--</span> orbits).</p>
               </> : ''}
-              {activeStation==='TSS' ? '' : <a className={activeStation==='ISS' ? 'home-btn launchpad' : 'home-btn'} onClick={()=>setStation('ISS')}>International Space Station</a>}
+              {activeStation==='TSS' ? '' : 
+                <a 
+                  className={activeStation==='ISS' ? 'home-btn launchpad' : 'home-btn'} 
+                  onClick={()=>{
+                    setStation('ISS')
+                    setCamera('ISS')
+                    }}>
+                      International Space Station</a>}
               {activeStation==='ISS' ? 
               <>
                 <p>The largest and most sophisticated of space station is the International Space Station (ISS).</p> 
@@ -363,7 +370,14 @@ export function Landing() {
                 </div>
               </>
               :''}
-              {activeStation==='ISS' ? '' : <a className={activeStation==='TSS' ? 'home-btn launchpad' : 'home-btn'}  onClick={()=>setStation('TSS')}>Tiangong Space Station</a>}
+              {activeStation==='ISS' ? '' : 
+                <a 
+                  className={activeStation==='TSS' ? 'home-btn launchpad' : 'home-btn'}  
+                  onClick={()=>{
+                    setStation('TSS')
+                    setCamera('TSS')
+                    }}>
+                    Tiangong Space Station</a>}
               {activeStation==='' ? <a className='home-btn axiom'>Axiom Station <br/><span className='credits'>Coming soon</span></a> : ''}
               {activeStation==='TSS' ? 
               <>
@@ -446,7 +460,9 @@ export function Landing() {
               <a 
               onClick={()=>{
                     setStation('')
-                    setCloseAudio(true)}} 
+                    setCloseAudio(true)
+                    setCamera('')
+                  }} 
               className="home-btn">Close &#x2715;</a>:''}
             {(showAction==='') || (activeLaunchPad!='') || (activeStation!='') ? '' : 
               <a className='home-btn' 
@@ -712,13 +728,55 @@ export function Landing() {
               <p>There's nobody currently living on the Moon but...as part of the Apollo program by NASA, 24 astronauts have flown to the Moon during nine missions between December 1968 and December 1972. During six successful two-man landing missions, 12 men walked on the lunar surface.</p>
               :''}
               <ul>
-                <li><a className={showAction==='apollo11'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo11')}>Apollo 11</a></li>
-                <li><a className={showAction==='apollo12'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo12')}>Apollo 12</a></li>
-                <li><a className={showAction==='apollo14'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo14')}>Apollo 14</a></li>
-                <li><a className={showAction==='apollo15'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo15')}>Apollo 15</a></li>
-                <li><a className={showAction==='apollo16'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo16')}>Apollo 16</a></li>
-                <li><a className={showAction==='apollo17'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('apollo17')}>Apollo 17</a></li>
-                <li><a className={showAction==='artemis'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} onClick={()=>setAction('artemis')}>Artemis III</a></li>
+                <li>
+                  <a 
+                    className={showAction==='apollo11'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} 
+                    onClick={()=>{
+                      setAction('apollo11')
+                      setCamera('apollo11')
+                      }}>Apollo 11</a></li>
+                <li>
+                  <a 
+                    className={showAction==='apollo12'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} 
+                    onClick={()=>{
+                      setAction('apollo12')
+                      setCamera('apollo12')
+                    }}>Apollo 12</a></li>
+                <li>
+                  <a 
+                    className={showAction==='apollo14'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} 
+                    onClick={()=>{
+                      setAction('apollo14')
+                      setCamera('apollo14')  
+                    }}>Apollo 14</a></li>
+                <li>
+                  <a 
+                    className={showAction==='apollo15'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} 
+                    onClick={()=>{
+                      setAction('apollo15')
+                      setCamera('apollo15')
+                      }}>Apollo 15</a></li>
+                <li>
+                  <a 
+                    className={showAction==='apollo16'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} 
+                    onClick={()=>{
+                      setAction('apollo16')
+                      setCamera('apollo16')  
+                    }}>Apollo 16</a></li>
+                <li>
+                  <a 
+                    className={showAction==='apollo17'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} 
+                    onClick={()=>{
+                      setAction('apollo17')
+                      setCamera('apollo17')  
+                    }}>Apollo 17</a></li>
+                <li>
+                  <a 
+                    className={showAction==='artemis'? "home-btn btn-selected inActive": showAction===''?"home-btn":'hidden-btn'} 
+                    onClick={()=>{
+                      setAction('artemis')
+                      setCamera('artemis')  
+                    }}>Artemis III</a></li>
               </ul>
 
               {showAction === 'apollo11' ? 
@@ -808,7 +866,9 @@ export function Landing() {
                 className={showAction==='' ? "hidden-btn":'home-btn'} 
                 onClick={()=>{
                   setAction('')
-                  setCloseAudio(true)}}>All lunar crew missions</a>
+                  setCloseAudio(true)
+                  setCamera('moon')
+                }}>All lunar crew missions</a>
               :''}
             {activeObject === '' ? 
           
@@ -1047,6 +1107,7 @@ export function Landing() {
                          setLight('')
                          setAction('')
                          setLaunchPad('')
+                         setCamera('')
                         }} 
                        title="Low Earth Orbit">
                       <i className="fa-solid fa-earth-americas"></i>
@@ -1074,6 +1135,7 @@ export function Landing() {
                          setLight('')
                          setAction('')
                          setLaunchPad('')
+                         setCamera('mars')
                         }} 
                        title="Mars">
                     <i className="fa-solid fa-bowling-ball"></i>

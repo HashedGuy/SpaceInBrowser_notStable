@@ -75,7 +75,28 @@ export function Moon(props) {
     if (cameraFocus==='moon') {
       state.camera.lookAt(moonRef.current.position)
       state.camera.position.lerp(vec.set(moonRef.current.position.x, moonRef.current.position.y, moonRef.current.position.z + 5), .01)
-    } 
+    } else if (cameraFocus==='apollo11') {
+      state.camera.lookAt(posApollo11.x,posApollo11.y,posApollo11.z)
+      state.camera.position.lerp(vec.set(posApollo11.x + 1,posApollo11.y,posApollo11.z), .01)
+    } else if (cameraFocus==='apollo12') {
+      state.camera.lookAt(posApollo12.x,posApollo12.y,posApollo12.z)
+      state.camera.position.lerp(vec.set(posApollo12.x + 1,posApollo12.y,posApollo12.z), .01)
+    } else if (cameraFocus==='apollo14') {
+      state.camera.lookAt(posApollo14.x,posApollo14.y,posApollo14.z)
+      state.camera.position.lerp(vec.set(posApollo14.x + 1,posApollo14.y,posApollo14.z), .01)
+    } else if (cameraFocus==='apollo15') {
+      state.camera.lookAt(posApollo15.x,posApollo15.y,posApollo15.z)
+      state.camera.position.lerp(vec.set(posApollo15.x + 1,posApollo15.y,posApollo15.z), .01)
+    } else if (cameraFocus==='apollo16') {
+      state.camera.lookAt(posApollo16.x,posApollo16.y,posApollo16.z)
+      state.camera.position.lerp(vec.set(posApollo16.x + 1,posApollo16.y,posApollo16.z), .01)
+    } else if (cameraFocus==='apollo17') {
+      state.camera.lookAt(posApollo17.x,posApollo17.y,posApollo17.z)
+      state.camera.position.lerp(vec.set(posApollo17.x + 1,posApollo17.y,posApollo17.z), .01)
+    } else if (cameraFocus==='artemis') {
+      state.camera.lookAt(posArtemis3.x,posArtemis3.y,posArtemis3.z)
+      state.camera.position.lerp(vec.set(posArtemis3.x + 1,posArtemis3.y,posArtemis3.z), .01)
+    }
     return null
   })
 
