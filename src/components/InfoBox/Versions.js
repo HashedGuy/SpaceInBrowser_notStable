@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
 import './versions.css'
+import logoTransparent from '../../assets/logo2.png'
+import { Link } from 'react-router-dom'
 
 function Versions() {
     const [version, setVersion] = useState('1.0.0')
   return (
     <div className='versionsContainer'>
         <div className='versionsTable'>
+          <div>
             <p className='majorRelease'><a onClick={()=>setVersion('1.0.0')}>Beta 1.0.0</a></p>
             <p><a onClick={()=>setVersion('1.0.1')}>Beta 1.0.1</a></p>
             <p className='pendingVersion'  onClick={()=>setVersion('1.0.2')}><a>Beta 1.0.2</a></p>
+          </div>
+          <Link to={'/'}><img src={logoTransparent} className='docLogo'/></Link>
         </div>
+       
         <div className='versionsInfo'>
             {version==='1.0.1' ? 
             <>
