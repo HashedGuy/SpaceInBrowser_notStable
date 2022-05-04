@@ -1,7 +1,7 @@
 import { Html } from '@react-three/drei'
 import React, { useEffect, useState, useRef } from 'react'
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil'
-import { clickedCBState, closedAudioG, focusCamera, launchpads, lights, showActions, stations } from '../globalState'
+import { clickedCBState, closedAudioG, focusCamera, launchpads, lights, showActions, stations, speedStation } from '../globalState'
 import {Link, Route, Routes} from 'react-router-dom'
 
 import Whistler from '../../assets/sounds/Whistler.wav'
@@ -51,6 +51,7 @@ export function Landing() {
     const [isPlaying, setIsPlaying] = useState(false);
     const [song, setSong] = useState('')
     const [camera, setCamera] = useRecoilState(focusCamera)
+    const [speed, setSpeed] = useRecoilState(speedStation)
 
     const audioPlayerBg = useRef()
 
@@ -1104,8 +1105,21 @@ export function Landing() {
            <div className='menuIcons'>
              {(camera==='ISS') || (camera==='issInside')? 
              <>
+
              <a className='home-btn' onClick={()=>setCamera('ISS')}>Follow the ISS</a>
              <a className='home-btn' onClick={()=>setCamera('issInside')}>Inside view</a>
+             
+             <a 
+              className='home-btn' 
+              onClick={()=>{
+                setSpeed('increasedSpeed')
+                setCamera('issInside')}}>Increased speed</a>
+             <a 
+              className='home-btn' 
+              onClick={()=>{
+                setSpeed('')
+                setCamera('issInside')}}>Real speed</a>
+             
              </>
              : 
              <>

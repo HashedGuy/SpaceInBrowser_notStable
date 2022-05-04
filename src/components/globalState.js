@@ -36,3 +36,8 @@ export const focusCamera= atom({
     default: ''
 })
 
+export const speedStation= atom({
+    key: 'speedStation',
+    default: ''
+})
+

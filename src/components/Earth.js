@@ -56,8 +56,7 @@ export function Earth(props) {
 
   useFrame(state => {
     if (cameraFocus==='') {
-      // state.camera.lookAt(cloudsRef.current.position.x, cloudsRef.current.position.y, cloudsRef.current.position.z + 2)
-      // state.camera.position.lerp(vec.set(cloudsRef.current.position.x, cloudsRef.current.position.y, cloudsRef.current.position.z - 5), .01)
+      
     } 
     return null
   })
@@ -265,7 +264,7 @@ export function Earth(props) {
       <mesh 
         ref={earthRef} 
         geometry={sphere(1)}
-        onDoubleClick={()=>setObject('earth')}
+        onDoubleClick={()=>setObject('LEO')}
         scale={
           activeObject === 'earth' ? 1 
           :

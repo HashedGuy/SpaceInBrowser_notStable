@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei'
-import { clickedCBState, focusCamera, stations } from '../globalState';
+import { clickedCBState, focusCamera, stations, speedStation } from '../globalState';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { useFrame, extend } from '@react-three/fiber';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
@@ -17,6 +17,7 @@ export default function Model({ ...props }) {
   const [activeObject, setObject] = useRecoilState(clickedCBState)
   const station = useRecoilValue(stations)
   const [cameraFocus, setCamera] = useRecoilState(focusCamera)
+  const [speed, setSpeed] = useRecoilState(speedStation)
   const vec = new THREE.Vector3()
 
   const issRef = useRef()
@@ -30,7 +31,7 @@ export default function Model({ ...props }) {
 
   useFrame(({ clock }) => {
     let elapsedTime
-   {activeObject === 'LEO' ? (elapsedTime = clock.getElapsedTime() * .006) : (elapsedTime = clock.getElapsedTime() * .05)}
+   {speed==='increasedSpeed' ? (elapsedTime = clock.getElapsedTime() * .1) : (elapsedTime = clock.getElapsedTime() * .05)}
     
     const x = xRadius* Math.sin(elapsedTime)
     const z = zRadius* Math.cos(elapsedTime)
@@ -41,9 +42,10 @@ export default function Model({ ...props }) {
 
   });
 
-  useFrame(({ clock }) => {
+ useFrame(({ clock }) => {
+  if (cameraFocus!=='issInside') {
     let elapsedTime
-   {activeObject === 'LEO' ? (elapsedTime = clock.getElapsedTime() * .006) : (elapsedTime = clock.getElapsedTime() * .07)}
+   {speed==='increasedSpeed' ? (elapsedTime = clock.getElapsedTime() * .1) : (elapsedTime = clock.getElapsedTime() * .07)}
     
     const x = xRadius* Math.sin(elapsedTime)
     const z = zRadius* Math.cos(elapsedTime)
@@ -51,12 +53,13 @@ export default function Model({ ...props }) {
     issTextRef.current.position.x = x;
     issTextRef.current.position.z = z;
     issTextRef.current.position.y = y + .02;
-
-  });
+  } return null
+  })
+ 
 
   useFrame(state => {
     if (cameraFocus==='ISS') {
-      state.camera.lookAt(issTextRef.current.position)
+      state.camera.lookAt(issRef.current.position)
       state.camera.position.lerp(vec.set(issRef.current.position.x, issRef.current.position.y - .2, issRef.current.position.z ), .01)
     } else if (cameraFocus==='issInside') {
       state.camera.lookAt(issRef.current.position.x, issRef.current.position.y, issRef.current.position.z)
@@ -70,12 +73,13 @@ export default function Model({ ...props }) {
   const textOptions = {
     font,
     size: ((activeObject==='LEO') && (cameraFocus!=='ISS')) || (activeObject==='earth') ? .04 : ((activeObject==='LEO') && (cameraFocus==='ISS')) ? .01 : 0,
-    height: .009
+    height: .003
   };
   
   return (
     <>
 
+    {cameraFocus==='issInside' ? '' :
     <mesh
       ref={issTextRef}
       position={[xRadius, yRadius, zRadius]}
@@ -83,7 +87,7 @@ export default function Model({ ...props }) {
     >
        <textGeometry attach='geometry' args={['    ISS', textOptions]} />
         <meshStandardMaterial attach='material' color={'white'} />
-    </mesh>
+    </mesh>}
     
     <mesh 
       position={[2.12, 0, 2.12]} 

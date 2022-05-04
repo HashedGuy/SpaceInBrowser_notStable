@@ -45,6 +45,7 @@ export default function Model({ ...props }) {
   });
 
   useFrame(({ clock }) => {
+    if (camera!=='tssInside') {
     let elapsedTime
     {activeObject === 'LEO' ? (elapsedTime = clock.getElapsedTime() * .009) : (elapsedTime = clock.getElapsedTime() * .06)}
     
@@ -54,7 +55,7 @@ export default function Model({ ...props }) {
     tssTextRef.current.position.x = x;
     tssTextRef.current.position.z = z;
     tssTextRef.current.position.y = y  + .02;
-
+    } return null
   });
 
   useFrame(state => {
