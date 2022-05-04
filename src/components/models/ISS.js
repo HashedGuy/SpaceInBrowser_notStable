@@ -58,7 +58,10 @@ export default function Model({ ...props }) {
     if (cameraFocus==='ISS') {
       state.camera.lookAt(issTextRef.current.position)
       state.camera.position.lerp(vec.set(issRef.current.position.x, issRef.current.position.y - .2, issRef.current.position.z ), .01)
-    } 
+    } else if (cameraFocus==='issInside') {
+      state.camera.lookAt(issRef.current.position.x, issRef.current.position.y, issRef.current.position.z)
+      state.camera.position.lerp(vec.set(issRef.current.position.x, issRef.current.position.y, issRef.current.position.z), .01)
+    }
     return null
   })
 

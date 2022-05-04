@@ -58,9 +58,12 @@ export default function Model({ ...props }) {
   });
 
   useFrame(state => {
-    if (camera==='TSS') {
+    if (camera==='tssInside') {
       state.camera.lookAt(tssRef.current.position.x, tssRef.current.position.y, tssRef.current.position.z)
       state.camera.position.lerp(vec.set(tssRef.current.position.x, tssRef.current.position.y, tssRef.current.position.z), .01)
+    } else if (camera==='TSS') {
+      state.camera.lookAt(tssTextRef.current.position)
+      state.camera.position.lerp(vec.set(tssRef.current.position.x, tssRef.current.position.y - .2, tssRef.current.position.z ), .01)
     }
     return null
   })

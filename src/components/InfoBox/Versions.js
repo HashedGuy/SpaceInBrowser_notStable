@@ -52,12 +52,12 @@ function Versions() {
             <p>Your browser needs to support <a href='https://www.khronos.org/registry/webgl/specs/latest/2.0/'>WebGL2.0</a> to to open Beta 1.0.0. You can enter <a href='https://get.webgl.org/webgl2/'>this website</a> to check whether WebGL2.0 is enabled in your browser (if yes, you should see a spinning cube).</p>
             
             <h4>Ecosystem</h4>
-            <ul>
-              <li>@reactjs - a JavaScript library for building user interfaces</li>
-              <li>@threejs – a cross-browser 3D JavaScript library</li>
-              <li>@react-three/fiber – a React renderer for threejs</li>
-              <li>@react-three/gltfjsx – turns GLTFs into JSX components</li>
-              <li>@react-three/drei – useful helpers for react-three-fiber</li>
+            <ul className='ecosystem'>
+              <li>- @reactjs - a JavaScript library for building user interfaces</li>
+              <li>- @threejs – a cross-browser 3D JavaScript library</li>
+              <li>- @react-three/fiber – a React renderer for threejs</li>
+              <li>- @react-three/gltfjsx – turns GLTFs into JSX components</li>
+              <li>- @react-three/drei – useful helpers for react-three-fiber</li>
             </ul>
             </>}
 

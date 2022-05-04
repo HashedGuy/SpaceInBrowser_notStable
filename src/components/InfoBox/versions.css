@@ -89,6 +89,10 @@
       list-style: circle !important;
   }
 
+  /* .ecosystem {
+      list-style: inside !important;
+  } */
+
   .docLogo {
     width: 80px;
     pointer-events: none;

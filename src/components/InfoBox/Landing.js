@@ -24,7 +24,8 @@ import Kjell from '../../assets/astros/kjell.png'
 import Samantha from '../../assets/astros/samantha.png'
 import logoTransparent from '../../assets/logo2.png'
 
-import audiostyles from "../audiostyles.css";
+import "../audiostyles.css"
+import "./controls.css"
 import { FaPlay, FaPause } from "react-icons/fa"
 import {GiMoonOrbit} from 'react-icons/gi'
 import {BsLightbulb, BsLightbulbOff, BsFillMouse2Fill, BsHeadphones, BsFillVolumeUpFill, BsFillVolumeMuteFill} from 'react-icons/bs'
@@ -1098,6 +1099,24 @@ export function Landing() {
             : <p>You can either double-click the celestial body or press one of the below buttons to discover your next destination</p>}
           </>
           }
+           {(camera==='ISS') || (camera==='TSS') || (camera==='issInside') || (camera==='tssInside') ? 
+           
+           <div className='menuIcons'>
+             {(camera==='ISS') || (camera==='issInside')? 
+             <>
+             <a className='home-btn' onClick={()=>setCamera('ISS')}>Follow the ISS</a>
+             <a className='home-btn' onClick={()=>setCamera('issInside')}>Inside view</a>
+             </>
+             : 
+             <>
+             <a className='home-btn' onClick={()=>setCamera('TSS')}>Follow the TSS</a>
+             <a className='home-btn' onClick={()=>setCamera('tssInside')}>Inside view</a>
+             </>
+             }
+           </div>
+           
+           : 
+           
            <div className='menuIcons'>
                     {activeObject==='LEO' ? '' : 
                     <>
@@ -1170,7 +1189,7 @@ export function Landing() {
                     <i className="fas fa-home"></i>
                     </a>
                     </>}
-                  </div>
+                  </div>}
         </div>}
         <div className='soundBackground'>
           

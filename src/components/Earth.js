@@ -287,10 +287,11 @@ export function Earth(props) {
           metalness={0.4}
           roughness={0.7}
         />
+        
         <OrbitControls
           enableZoom={false}
           enablePan={true}
-          enableRotate={true}
+          enableRotate={cameraFocus === '' ? true : false}
           panSpeed={0.9}
           rotateSpeed={.9}
         />
