@@ -40,7 +40,7 @@ function Versions() {
             </>}
 
             <h4>How to contribute</h4>
-            <p>If you like this project, please consider helping out. All contributions are welcome as well as donations to Opencollective, or in crypto <span className='btc'>BTC: 12YperDkC531Dsmu43FLB98WwRXyxxDnoq</span>, <span className='eth'>ETH: 0xe329a597eda16261095261d4cccb7ba06a7ad1b8</span>.</p>
+            <p>If you like this project, please consider helping out. All contributions are welcome as well as donations to <a href='https://www.patreon.com/spaceinbrowser' target='_blank'>Patreon</a>, or in crypto <span className='btc'>BTC: 12YperDkC531Dsmu43FLB98WwRXyxxDnoq</span>, <span className='eth'>ETH: 0xe329a597eda16261095261d4cccb7ba06a7ad1b8</span>.</p>
         </div>
     </div>
   )
