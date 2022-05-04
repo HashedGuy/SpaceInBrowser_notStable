@@ -14,7 +14,7 @@ function Versions() {
             {version==='1.0.1' ? 
             <>
              <h2 className='titleVersion'>Beta 1.0.1</h2>
-            <p className='comingSoon'>Beta 1.0.1 is a minor version released on 14 May, 2022.</p>
+            <p className='comingSoon'>Beta 1.0.1 is a minor version expected to be released on 14 May, 2022.</p>
             </>
             :
             version==='1.0.2' ? 
