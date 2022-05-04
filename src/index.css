@@ -277,7 +277,8 @@ a {
 .logoSmallImg {
   width: 80px;
   transition: transform .2s ease-in-out;
-  cursor: pointer;
+  /* cursor: pointer; */
+  pointer-events: none;
 }
 
 .logoSmallImg:hover {

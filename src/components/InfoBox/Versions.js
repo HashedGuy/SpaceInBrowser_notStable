@@ -53,6 +53,7 @@ function Versions() {
             
             <h4>Ecosystem</h4>
             <ul>
+              <li>@reactjs - a JavaScript library for building user interfaces</li>
               <li>@threejs – a cross-browser 3D JavaScript library</li>
               <li>@react-three/fiber – a React renderer for threejs</li>
               <li>@react-three/gltfjsx – turns GLTFs into JSX components</li>

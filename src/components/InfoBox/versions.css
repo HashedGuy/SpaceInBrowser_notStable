@@ -91,5 +91,5 @@
 
   .docLogo {
     width: 80px;
-    cursor: pointer;
+    pointer-events: none;
   }
