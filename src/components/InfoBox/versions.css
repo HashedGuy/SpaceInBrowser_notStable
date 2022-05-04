@@ -80,3 +80,7 @@
   .btc, .eth {
       border-radius: 5px;
   }
+
+  .expectations {
+      list-style: circle !important;
+  }

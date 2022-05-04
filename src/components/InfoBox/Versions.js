@@ -14,13 +14,28 @@ function Versions() {
             {version==='1.0.1' ? 
             <>
              <h2 className='titleVersion'>Beta 1.0.1</h2>
-            <p className='comingSoon'>Beta 1.0.1 is a minor version expected to be released on 14 May, 2022.</p>
+            <p className='comingSoon'>Beta 1.0.1 is a minor (not stable) version expected to be released on 14 May, 2022.</p>
+
+            <h4>What to expect</h4>
+            <ul className='expectations'>
+              <li>Actual demo 'traveling' in space rather than 'teleporting' from one celestial body to another;</li>
+              <li>Size, distance corrections to celestial bodies.</li>
+            </ul>
+            {/* <p>Actual 'traveling' in space rather than 'teleporting' from one celestial body to another. Size, distance corrections to celestial bodies.</p> */}
             </>
             :
             version==='1.0.2' ? 
             <>
              <h2 className='titleVersion'>Beta 1.0.2</h2>
-            <p className='comingSoon'>Beta 1.0.2 is a minor version coming on 29 May, 2022.</p>
+            <p className='comingSoon'>Beta 1.0.2 is a minor (stable) version coming on 29 May, 2022.</p>
+
+            <h4>What to expect</h4>
+            <ul className='expectations'>
+              <li>Actual 'travel' in space;</li>
+              <li>Venus added;</li>
+              <li>SpaceX Crew Dragon added;</li>
+              <li>Demo control of the space stations.</li>
+            </ul>
             </>
             :
             <>
@@ -40,7 +55,11 @@ function Versions() {
             </>}
 
             <h4>How to contribute</h4>
-            <p>If you like this project, please consider helping out. All contributions are welcome as well as donations to <a href='https://www.patreon.com/spaceinbrowser' target='_blank'>Patreon</a>, or in crypto <span className='btc'>BTC: 12YperDkC531Dsmu43FLB98WwRXyxxDnoq</span>, <span className='eth'>ETH: 0xe329a597eda16261095261d4cccb7ba06a7ad1b8</span>.</p>
+            <p>If you like this project, please consider helping out. All contributions are welcome as well as donations to <a href='https://www.patreon.com/spaceinbrowser' target='_blank'>Patreon</a>, or in crypto:</p>
+            <ul className='expectations'>
+              <li><span className='btc'>BTC: 12YperDkC531Dsmu43FLB98WwRXyxxDnoq</span></li>
+              <li><span className='eth'>ETH: 0xe329a597eda16261095261d4cccb7ba06a7ad1b8</span></li>
+            </ul>  
         </div>
     </div>
   )
