@@ -28,7 +28,7 @@ function Versions() {
             <p className='comingSoon'>Beta 1.0.0 is a major version released on 29 April, 2022.</p>
 
             <h4>Fundamentals</h4>
-            <p>Your browser need to support <a href='https://www.khronos.org/registry/webgl/specs/latest/2.0/'>WebGL2.0</a> to to open Beta 1.0.0. You can enter <a href='https://get.webgl.org/webgl2/'>this website</a> to check whether WebGL2.0 is enabled in your browser (if yes, you should see a spinning cube).</p>
+            <p>Your browser needs to support <a href='https://www.khronos.org/registry/webgl/specs/latest/2.0/'>WebGL2.0</a> to to open Beta 1.0.0. You can enter <a href='https://get.webgl.org/webgl2/'>this website</a> to check whether WebGL2.0 is enabled in your browser (if yes, you should see a spinning cube).</p>
             
             <h4>Ecosystem</h4>
             <ul>
