@@ -22,7 +22,7 @@ SpaceInBrowser is an indie 3D animation/simulation of space in WebL created by [
 
 - [React-Three-Drei](https://github.com/pmndrs/drei)
 
-- [Blender](https://www.blender.org/)
+- [Blender](https://docs.blender.org/)
 
 ## Community
 
