@@ -438,7 +438,7 @@ export function Landing() {
             <p>To get to space, humankind relies on key launch sites scattered around the world.</p>
             <p>Dozens of sites around the world host spaceports, the specialized facilities built to send and receive rocket-powered vehicles on flights into the cosmos.</p>
             
-            <a className='home-btn' onClick={()=>setAction('crewPad')}>Show sites with crew launch</a>
+            <a className='home-btn' onClick={()=>setAction('crewPad')}>Sites with crew launch</a>
             {showAction==='crewPad' ? 
               <>
                 <p>Green circles &#128994; on the surface of the Earth show the rocket launch sites with confirmed crew mission launches. Some of them provide <span style={{"color": "red"}}>LIVE</span> streams!</p>
@@ -449,7 +449,7 @@ export function Landing() {
               onClick={()=>{
                 setCloseAudio(true)
                 setAction('satellitePad')}}
-            >Show sites with satellite launch</a>
+            >Sites with satellite launch</a>
             {showAction==='satellitePad' ? 
               <>
                 <p>Red circles 	&#128308; on the surface of the Earth show the rocket launch sites with confirmed satellite launches only (without crew mission launches).</p>
