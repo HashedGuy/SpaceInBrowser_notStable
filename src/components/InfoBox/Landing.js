@@ -1106,25 +1106,20 @@ export function Landing() {
              {(camera==='ISS') || (camera==='issInside')? 
              <>
 
-             <a className='home-btn' onClick={()=>setCamera('ISS')}>Follow the ISS</a>
-             <a className='home-btn' onClick={()=>setCamera('issInside')}>Inside view</a>
+             {camera==='issInside' ? <a className='home-btn' onClick={()=>setCamera('ISS')}>Follow the ISS</a> : ''}
+             {camera!=='issInside' ? <a className='home-btn' onClick={()=>setCamera('issInside')}>Inside view</a> : ''}
              
-             <a 
-              className='home-btn' 
-              onClick={()=>{
-                setSpeed('increasedSpeed')
-                setCamera('issInside')}}>Increased speed</a>
-             <a 
-              className='home-btn' 
-              onClick={()=>{
-                setSpeed('')
-                setCamera('issInside')}}>Real speed</a>
+             <a className='home-btn' onClick={()=>{setSpeed('increasedSpeed')}}>Increased speed</a>
+             <a className='home-btn' onClick={()=>{setSpeed('')}}>Real speed</a>
              
              </>
              : 
              <>
-             <a className='home-btn' onClick={()=>setCamera('TSS')}>Follow the TSS</a>
-             <a className='home-btn' onClick={()=>setCamera('tssInside')}>Inside view</a>
+             {camera==='tssInside' ? <a className='home-btn' onClick={()=>setCamera('TSS')}>Follow the TSS</a> : ''}
+             {camera!=='tssInside' ? <a className='home-btn' onClick={()=>setCamera('tssInside')}>Inside view</a> : ''}
+
+             <a className='home-btn' onClick={()=>{setSpeed('increasedSpeed')}}>Increased speed</a>
+             <a className='home-btn' onClick={()=>{setSpeed('')}}>Real speed</a>
              </>
              }
            </div>

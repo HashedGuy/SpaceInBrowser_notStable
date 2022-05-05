@@ -212,6 +212,7 @@ export function Earth(props) {
       : activeObject === 'moon' ? (cloudsRef.current.position.z = 2)
       : activeObject === 'mars' ? (cloudsRef.current.position.z = -2) 
       : (cloudsRef.current.position.z = 0)
+     
   });
 
   const sphere = (x) => new THREE.SphereGeometry(x, 36, 36)
@@ -226,7 +227,7 @@ export function Earth(props) {
         color="#f6f3ea" 
         position={
           activeObject === '' ? [0, 0, 0] : activeObject === 'moon' ? [39, 0, 9]
-          : [2, 5, 205]} 
+          : [0, 0, 205]} 
         intensity={1.5} 
       />}
       <Stars

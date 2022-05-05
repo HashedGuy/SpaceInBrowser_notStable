@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei' 
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { clickedCBState, focusCamera, stations } from '../globalState'
+import { clickedCBState, focusCamera, speedStation, stations } from '../globalState'
 import { useFrame, extend } from '@react-three/fiber';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import Font from "../../assets/fontMedium.json"
@@ -17,6 +17,7 @@ export default function Model({ ...props }) {
   const [activeObject, setObject] = useRecoilState(clickedCBState)
   const station = useRecoilValue(stations)
   const [camera, setCamera] = useRecoilState(focusCamera)
+  const [speed, setSpeed] = useRecoilState(speedStation)
   const vec = new THREE.Vector3()
 
   const tssRef = useRef()
@@ -33,7 +34,7 @@ export default function Model({ ...props }) {
 
   useFrame(({ clock }) => {
     let elapsedTime
-    {activeObject === 'LEO' ? (elapsedTime = clock.getElapsedTime() * .009) : (elapsedTime = clock.getElapsedTime() * .06)}
+    {speed==='increasedSpeed' ? (elapsedTime = clock.getElapsedTime() * .1) : (elapsedTime = clock.getElapsedTime() * .06)}
     
     const x = xRadius* Math.sin(elapsedTime)
     const z = zRadius* Math.cos(elapsedTime)
@@ -47,7 +48,7 @@ export default function Model({ ...props }) {
   useFrame(({ clock }) => {
     if (camera!=='tssInside') {
     let elapsedTime
-    {activeObject === 'LEO' ? (elapsedTime = clock.getElapsedTime() * .009) : (elapsedTime = clock.getElapsedTime() * .06)}
+    {speed==='increasedSpeed' ? (elapsedTime = clock.getElapsedTime() * .1) : (elapsedTime = clock.getElapsedTime() * .06)}
     
     const x = xRadius* Math.sin(elapsedTime)
     const z = zRadius* Math.cos(elapsedTime)
@@ -79,17 +80,18 @@ export default function Model({ ...props }) {
 
   return (
     <>
-    <mesh
+     {camera==='tssInside' ? '' :
+     <mesh
       ref={tssTextRef}
       position={[xRadius, yRadius, zRadius]}
-      // onClick={()=>setCamera('TSS')}
     >
        <textGeometry attach='geometry' args={['    TSS', textOptions]} />
         <meshStandardMaterial attach='material' color={'white'} />
-    </mesh>
+    </mesh>}
 
     <mesh 
-      scale={(activeObject==='LEO') || (activeObject==='earth') ? .001 : 0}
+      scale={
+        ((activeObject==='LEO') && (camera!=='tssInside')) || (activeObject==='earth') ? .001 : 0}
       position={[.7, .7, .7]} 
       ref={tssRef}
     >

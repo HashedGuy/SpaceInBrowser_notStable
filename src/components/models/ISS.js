@@ -31,7 +31,7 @@ export default function Model({ ...props }) {
 
   useFrame(({ clock }) => {
     let elapsedTime
-   {speed==='increasedSpeed' ? (elapsedTime = clock.getElapsedTime() * .1) : (elapsedTime = clock.getElapsedTime() * .05)}
+   {speed==='increasedSpeed' ? (elapsedTime = clock.getElapsedTime() * .11) : (elapsedTime = clock.getElapsedTime() * .05)}
     
     const x = xRadius* Math.sin(elapsedTime)
     const z = zRadius* Math.cos(elapsedTime)
@@ -45,7 +45,7 @@ export default function Model({ ...props }) {
  useFrame(({ clock }) => {
   if (cameraFocus!=='issInside') {
     let elapsedTime
-   {speed==='increasedSpeed' ? (elapsedTime = clock.getElapsedTime() * .1) : (elapsedTime = clock.getElapsedTime() * .07)}
+   {speed==='increasedSpeed' ? (elapsedTime = clock.getElapsedTime() * .11) : (elapsedTime = clock.getElapsedTime() * .07)}
     
     const x = xRadius* Math.sin(elapsedTime)
     const z = zRadius* Math.cos(elapsedTime)
@@ -75,6 +75,8 @@ export default function Model({ ...props }) {
     size: ((activeObject==='LEO') && (cameraFocus!=='ISS')) || (activeObject==='earth') ? .04 : ((activeObject==='LEO') && (cameraFocus==='ISS')) ? .01 : 0,
     height: .003
   };
+
+  console.log(cameraFocus)
   
   return (
     <>
@@ -83,7 +85,6 @@ export default function Model({ ...props }) {
     <mesh
       ref={issTextRef}
       position={[xRadius, yRadius, zRadius]}
-      onClick={()=>setCamera('ISS')}
     >
        <textGeometry attach='geometry' args={['    ISS', textOptions]} />
         <meshStandardMaterial attach='material' color={'white'} />
@@ -93,7 +94,8 @@ export default function Model({ ...props }) {
       position={[2.12, 0, 2.12]} 
       scale={
         (activeObject==='mars') || (activeObject==='moon') || (activeObject==='')? 0 : 
-        (activeObject==='LEO') ? 0.007 
+        (activeObject==='LEO') && (cameraFocus!=='issInside') ? 0.007 :
+        (activeObject==='LEO') && (cameraFocus==='issInside') ? 0
         : .005} 
       ref={issRef}
     >
