@@ -263,7 +263,7 @@ export function Landing() {
                 <p>Since the first module was launched into low Earth orbit in 1998, the ISS has grown with modular additions from the principal space agencies involved in building and operating the space station: NASA, Roscosmos, ESA, JAXA and CSA. To date, 237 astronauts from 18 countries have visited the ISS.</p>
                 <h5 style={{"color":"gray"}}>Who's On Station?</h5>
                 <div style={{"display":"flex", "flexDirection":"column"}}>
-                  <div className='bioGroups'>
+                  {/* <div className='bioGroups'>
                     <ModalImage
                       small={Matt}
                       large={Matt}
@@ -300,7 +300,7 @@ export function Landing() {
                       hideZoom
                       imageBackgroundColor="transparent"
                     />
-                  </div>
+                  </div> */}
                   <div className='bioGroups'>
                     <ModalImage
                       small={Oleg}
