@@ -28,6 +28,8 @@ SpaceInBrowser is an indie 3D animation/simulation of space in WebL created by [
 
 - [Twitter](https://twitter.com/spaceinbrowser)
 
+- [Discord](https://discord.gg/BD8AtqPm)
+
 ## Donations
 
 - [Patreon](https://www.patreon.com/spaceinbrowser)
