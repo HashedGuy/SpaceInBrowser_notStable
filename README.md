@@ -31,6 +31,8 @@ SpaceInBrowser is an indie 3D animation/simulation of space in WebL created by [
 ## Donations
 
 - [Patreon](https://www.patreon.com/spaceinbrowser)
+- BTC: 12YperDkC531Dsmu43FLB98WwRXyxxDnoq
+- ETH: 0xe329a597eda16261095261d4cccb7ba06a7ad1b8
 
 ## More information
 
