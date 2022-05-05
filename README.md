@@ -12,7 +12,15 @@ SpaceInBrowser is an indie 3D animation/simulation of space in WebL created by [
 
 ### `Libraries/Engines`
 
+- [ReactJS](https://reactjs.org/docs/getting-started.html)
+
+- [ThreeJS](https://threejs.org/docs/)
+
 - [React-Three-Fiber](https://github.com/pmndrs/react-three-fiber)
+
+- [React-Three-Gltfjsx](https://github.com/pmndrs/gltfjsx)
+
+- [React-Three-Drei](https://github.com/pmndrs/drei)
 
 - [Blender](https://www.blender.org/)
 
