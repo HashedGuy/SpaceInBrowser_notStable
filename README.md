@@ -42,4 +42,4 @@ SpaceInBrowser is an indie 3D animation/simulation of space in WebL created by [
 
 ## License
 
-- The work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+The work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
