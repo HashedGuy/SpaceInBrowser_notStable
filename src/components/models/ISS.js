@@ -45,7 +45,7 @@ export default function Model({ ...props }) {
  useFrame(({ clock }) => {
   if (cameraFocus!=='issInside') {
     let elapsedTime
-   {speed==='increasedSpeed' ? (elapsedTime = clock.getElapsedTime() * .11) : (elapsedTime = clock.getElapsedTime() * .07)}
+   {speed==='increasedSpeed' ? (elapsedTime = clock.getElapsedTime() * .11) : (elapsedTime = clock.getElapsedTime() * .05)}
     
     const x = xRadius* Math.sin(elapsedTime)
     const z = zRadius* Math.cos(elapsedTime)
