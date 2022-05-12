@@ -156,6 +156,8 @@ export function Landing() {
       )
     }
 
+    console.log(camera)
+
     return(
         <Html wrapperClass="annotation" >
         <div className='infoBox'>
@@ -167,7 +169,9 @@ export function Landing() {
                 setObject('')
                 setLight('')
                 setAction('')
-                setLaunchPad('')}}>
+                setLaunchPad('')
+                setCamera('')
+                }}>
              <img 
               src={logoTransparent} 
               className='logoSmallImg'
@@ -175,7 +179,9 @@ export function Landing() {
                 setObject('')
                 setLight('')
                 setAction('')
-                setLaunchPad('')}}
+                setLaunchPad('')
+                setCamera('')
+              }}
             />
             </p>
           </>}
@@ -193,7 +199,9 @@ export function Landing() {
                 setObject('')
                 setLight('')
                 setAction('')
-                setLaunchPad('')}}
+                setLaunchPad('')
+                setCamera('')
+              }}
             />
            <a href='https://spaceinbrowser.com/docs' target='_blank'><p className='versionName' style={{}}>Beta Version 1.0.1 (not stable)</p></a>
           </>            }
