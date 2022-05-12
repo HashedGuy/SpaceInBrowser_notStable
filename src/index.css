@@ -82,13 +82,13 @@ a {
   font-size: 30%;
   font-weight: 300;
   color: rgb(170, 71, 170);
-  cursor: pointer;
   margin-bottom: 0 !important;
   padding: 0 !important;
 }
 
 .versionDropdown:hover {
   opacity: .5;
+  cursor: pointer;
 }
 
 .soundBackground {
@@ -436,6 +436,11 @@ a {
 
 .gitBtn:hover {
   color: #817f7f;
+}
+
+.hovered:hover {
+  opacity: .5;
+  cursor: pointer;
 }
 
 .ytBtn:hover {

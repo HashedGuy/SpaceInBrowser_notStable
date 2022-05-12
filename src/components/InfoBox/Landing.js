@@ -212,7 +212,7 @@ export function Landing() {
               href='https://spaceinbrowser.com' 
               // onClick={()=>setDropdownVersion(!dropdownVersion)} 
              >
-                <p className='versionName' style={{}}>Beta Version 1.0.0</p>
+                <p className='versionName hovered' style={{}}>Beta Version 1.0.0</p>
               </a>
             </>: ''}
           </>            }
