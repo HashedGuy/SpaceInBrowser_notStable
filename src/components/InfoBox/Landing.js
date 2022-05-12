@@ -28,7 +28,7 @@ import "../audiostyles.css"
 import "./controls.css"
 import { FaPlay, FaPause } from "react-icons/fa"
 import {GiMoonOrbit} from 'react-icons/gi'
-import {BsLightbulb, BsLightbulbOff, BsFillMouse2Fill, BsHeadphones, BsFillVolumeUpFill, BsFillVolumeMuteFill} from 'react-icons/bs'
+import {BsLightbulb, BsGithub, BsLightbulbOff, BsFillMouse2Fill, BsHeadphones, BsFillVolumeUpFill, BsFillVolumeMuteFill} from 'react-icons/bs'
 import {AiOutlineCloseCircle, AiFillCaretDown, AiFillCaretUp} from 'react-icons/ai'
 import ReactPlayer from 'react-player'
 import { IKImage, IKContext, IKUpload } from 'imagekitio-react'
@@ -52,6 +52,7 @@ export function Landing() {
     const [song, setSong] = useState('')
     const [camera, setCamera] = useRecoilState(focusCamera)
     const [speed, setSpeed] = useRecoilState(speedStation)
+    const [dropdownVersion, setDropdownVersion] = useState(false)
 
     const audioPlayerBg = useRef()
 
@@ -203,7 +204,17 @@ export function Landing() {
                 setCamera('')
               }}
             />
-           <a href='https://spaceinbrowser.com/docs' target='_blank'><p className='versionName' style={{}}>Beta Version 1.0.1 (not stable)</p></a>
+              <p className='versionName' style={{}}>Beta Version 1.0.1 (not stable) &nbsp; <span className='versionDropdown' onClick={()=>setDropdownVersion(!dropdownVersion)} >&#x25BC;</span></p>
+            
+            {dropdownVersion ? 
+            <>
+               <a 
+              href='https://spaceinbrowser.com' 
+              // onClick={()=>setDropdownVersion(!dropdownVersion)} 
+             >
+                <p className='versionName' style={{}}>Beta Version 1.0.0</p>
+              </a>
+            </>: ''}
           </>            }
          
           
@@ -890,6 +901,9 @@ export function Landing() {
 
               <a  className='twBtn' href="https://twitter.com/spaceinbrowser" target="_blank">
                 <i className="fab fa-twitter"></i>
+              </a> 
+              <a  className='gitBtn' href="https://github.com/HashedGuy/SpaceInBrowser_notStable" target="_blank">
+              <i className="fab fa-github"></i>
               </a> 
 
               <a  className='ytBtn' href="https://www.youtube.com/channel/UCcr4eYlztyxKO7rPmNCrgdg" target="_blank">

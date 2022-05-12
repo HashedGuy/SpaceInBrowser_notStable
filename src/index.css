@@ -81,7 +81,14 @@ a {
 .versionName {
   font-size: 30%;
   font-weight: 300;
-  color: rgb(148, 48, 148);
+  color: rgb(170, 71, 170);
+  cursor: pointer;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+.versionDropdown:hover {
+  opacity: .5;
 }
 
 .soundBackground {
@@ -414,7 +421,7 @@ a {
   color: #9C2E35;
 }
 
-.patreonBtn, .twBtn, .ytBtn {
+.patreonBtn, .twBtn, .ytBtn, .gitBtn {
   color: aliceblue;
 }
 
@@ -425,6 +432,10 @@ a {
 
 .twBtn:hover {
   color: #1DA1F2;
+}
+
+.gitBtn:hover {
+  color: #817f7f;
 }
 
 .ytBtn:hover {
