@@ -241,6 +241,7 @@ a {
 
 .extraInfo a {
   text-decoration: none;
+  text-align: center;
 }
 
 .extraInfo .credits {
